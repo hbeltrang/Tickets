@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Tax 18%",
+    "percent": 18.0,
+    "IsDefault": 1,
+    "status": 1
+  },
+  {
+    "name": "Tax 0%",
+    "percent": 0,
+    "IsDefault": 0,
+    "status": 1
+  }
+]

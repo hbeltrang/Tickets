@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Imprime en casa",
+    "IsDefault": 1,
+    "status": 1
+  },
+  {
+    "name": "Mobile",
+    "IsDefault": 0,
+    "status": 1
+  }
+]

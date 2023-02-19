@@ -1,0 +1,38 @@
+[
+  {
+    "countryid": 1,
+    "stateid": 3,
+    "name": "Phoenix",
+    "code": "PHX"
+  },
+  {
+    "countryid": 1,
+    "stateid": 3,
+    "name": "Tucson",
+    "code": "TUC"
+  },
+  {
+    "countryid": 1,
+    "stateid": 5,
+    "name": "Anahein",
+    "code": "AN"
+  },
+  {
+    "countryid": 1,
+    "stateid": 5,
+    "name": "Los Angeles",
+    "code": "LA"
+  },
+  {
+    "countryid": 1,
+    "stateid": 5,
+    "name": "San Bernardino",
+    "code": "SB"
+  },
+  {
+    "countryid": 1,
+    "stateid": 5,
+    "name": "San Francisco",
+    "code": "SF"
+  }
+]
