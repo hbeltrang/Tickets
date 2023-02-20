@@ -11,7 +11,7 @@ namespace Tickets.Api.Controllers
     [Route("api/v1/[controller]")]
     public class CategoriesController : ControllerBase
     {
-        private IMediator _mediator;
+        private readonly IMediator _mediator;
 
         public CategoriesController(IMediator mediator)
         {
@@ -19,12 +19,13 @@ namespace Tickets.Api.Controllers
         }
 
         [AllowAnonymous]
-        [HttpGet("list", Name = "GetCategoryList")]
+        [HttpGet(Name = "GetCategories")]
         [ProducesResponseType(typeof(IReadOnlyList<CategoryVm>), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<IReadOnlyList<CategoryVm>>> GetCategoryList()
+        public async Task<ActionResult<IReadOnlyList<CategoryVm>>> GetCategories()
         {
             var query = new GetCategoryListQuery();
-            return Ok(await _mediator.Send(query));
+            var categories = await _mediator.Send(query);
+            return Ok(categories);
         }
 
     }

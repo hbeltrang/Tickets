@@ -27,7 +27,9 @@ namespace Tickets.Application.Features.Countries.Queries.GetCountryList
                 false
             );
 
-            return _mapper.Map<IReadOnlyList<CountryVm>>(countries);
+            var countriesVm = _mapper.Map<IReadOnlyList<CountryVm>>(countries);
+
+            return countriesVm;
 
         }
     }

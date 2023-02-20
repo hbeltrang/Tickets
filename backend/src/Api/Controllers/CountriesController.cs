@@ -11,7 +11,7 @@ namespace Tickets.Api.Controllers
     [Route("api/v1/[controller]")]
     public class CountriesController : ControllerBase
     {
-        private IMediator _mediator;
+        private readonly IMediator _mediator;
 
         public CountriesController(IMediator mediator)
         {
@@ -24,7 +24,8 @@ namespace Tickets.Api.Controllers
         public async Task<ActionResult<IReadOnlyList<CountryVm>>> GetCountries()
         {
             var query = new GetCountryListQuery();
-            return Ok(await _mediator.Send(query));
+            var countries = await _mediator.Send(query);
+            return Ok(countries);
         }
 
     }
