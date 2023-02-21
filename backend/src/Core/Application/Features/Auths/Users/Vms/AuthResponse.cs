@@ -19,6 +19,7 @@
         public string? Avatar { get; set; }
 
         public ICollection<string>? Roles { get; set; }
+        public bool IsActive { get; set; }
 
     }
 }

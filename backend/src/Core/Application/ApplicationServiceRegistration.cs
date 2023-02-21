@@ -3,6 +3,7 @@ using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Tickets.Application.Behaviors;
+using Tickets.Application.Extensions.WatchDog;
 using Tickets.Application.Mappings;
 
 namespace Tickets.Application
@@ -24,6 +25,7 @@ namespace Tickets.Application
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(UnhandledExceptionBehavior<,>));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
 
+            services.AddWatchDog(configuration);
             
             return services;
         }

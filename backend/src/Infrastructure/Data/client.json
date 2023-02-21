@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Juan Perez 01",
+    "phone": "602-12345601",
+    "email": "juanperez01@test.com",
+    "address": "Av Maleon 01, 87900"
+  },
+  {
+    "name": "Juan Perez 02",
+    "phone": "602-12345602",
+    "email": "juanperez03@test.com",
+    "address": "Av Maleon 02, 87900"
+  },
+  {
+    "name": "Juan Perez 03",
+    "phone": "602-12345603",
+    "email": "juanperez03@test.com",
+    "address": "Av Maleon 03, 87900"
+  }
+]

@@ -1,7 +1,11 @@
 [
   {
-    "name": "US",
-    "code": "US",
-    "code2": "USA"
+    "name": "Admin"
+  },
+  {
+    "name": "User"
+  },
+  {
+    "name": "Promoter"
   }
 ]

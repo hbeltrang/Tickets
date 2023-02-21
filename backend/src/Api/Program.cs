@@ -18,6 +18,8 @@ using Tickets.Domain;
 using Tickets.Infrastructure;
 using Tickets.Infrastructure.ImageCloudinary;
 using Tickets.Infrastructure.Persistance;
+using WatchDog;
+using static Org.BouncyCastle.Math.EC.ECCurve;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -80,7 +82,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 // Cors
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("CorsPolicy", builder => builder.AllowAnyOrigin()
+    options.AddPolicy(builder.Configuration["CorsSettings:CorsPolicy"]!, builder => builder.AllowAnyOrigin()
     .AllowAnyMethod()
     .AllowAnyHeader()
     );
@@ -111,10 +113,18 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 //cors
-app.UseCors("CorsPolicy");
+app.UseCors(builder.Configuration["CorsSettings:CorsPolicy"]!);
 
 app.MapControllers();
 
+//watchdog
+app.UseWatchDogExceptionLogger();
+app.UseWatchDog(configuration =>
+{
+    configuration.WatchPageUsername = builder.Configuration["WatchDogSettings:UserAdmin"];
+    configuration.WatchPagePassword = builder.Configuration["WatchDogSettings:PwdAdmin"];
+}
+);
 
 //carga informacion inicial
 using (var scope = app.Services.CreateScope())

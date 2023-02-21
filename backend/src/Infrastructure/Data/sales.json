@@ -1,0 +1,22 @@
+[
+  {
+    "eventid": 1,
+    "name": "Julion Alvarez",
+    "fecha": "03/15/2023",
+    "client": "Juan Perez",
+    "phone": "60212345678",
+    "email": "JuanPerez01@test.com",
+    "sentaddress": "1902 av, phx",
+    "ipaddress": "1.1.1.1",
+    "ticketsent": "Email",
+    "totalfeepromoter": 6.75,
+    "totalfeeadmin": 3.37,
+    "totalticket": 135,
+    "totalfree": 10.12,
+    "totalsale": 145.12,
+    "creditcardname": "Juan Perez Ramirez",
+    "creditcardnumber": "4545",
+    "creditcardmonth": "02",
+    "creditcardyear": "2025"
+  }
+]

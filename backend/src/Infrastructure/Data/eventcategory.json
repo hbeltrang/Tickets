@@ -1,14 +1,18 @@
 [
   {
-    "name": "Bailes"
+    "eventid": 1,
+    "categoryid": 1
   },
   {
-    "name": "Rodeos"
+    "eventid": 1,
+    "categoryid": 2
   },
   {
-    "name": "Palenques"
+    "eventid": 2,
+    "categoryid": 1
   },
   {
-    "name": "Comedia"
+    "eventid": 3,
+    "categoryid": 3
   }
 ]

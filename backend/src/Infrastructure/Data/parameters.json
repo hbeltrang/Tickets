@@ -1,8 +1,9 @@
 [
   {
-    "name": "Dolar Americano",
-    "code": "usd",
-    "IsDefault": 1,
-    "status": 1
+    "formatdate": "mm/dd/yyyy",
+    "colorheader": "#000000",
+    "footer": "2023 Boletix",
+    "comisionpromoter": 5.0,
+    "comisionadmin": 2.5
   }
 ]

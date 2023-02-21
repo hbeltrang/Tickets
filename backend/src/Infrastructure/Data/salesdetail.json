@@ -1,0 +1,22 @@
+[
+  {
+    "saleid": 1,
+    "saleticket": "00000000-0000-0000-0000-000000000001",
+    "ticket": "General",
+    "qty": 1,
+    "ticketprice": 45,
+    "feepromoter": 2.25,
+    "feeadmin": 1.12,
+    "total": 48.37
+  },
+  {
+    "saleid": 1,
+    "saleticket": "00000000-0000-0000-0000-000000000002",
+    "ticket": "VIP",
+    "qty": 1,
+    "ticketprice": 90,
+    "feepromoter": 4.5,
+    "feeadmin": 2.25,
+    "total": 96.75
+  }
+]

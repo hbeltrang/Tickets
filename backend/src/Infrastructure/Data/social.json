@@ -1,8 +1,10 @@
 [
   {
-    "name": "Dolar Americano",
-    "code": "usd",
-    "IsDefault": 1,
-    "status": 1
+    "name": "Facebook",
+    "code": "https://www.facebook.com/boletix"
+  },
+  {
+    "name": "Youtube",
+    "code": "https://www.youtube.com/boletix"
   }
 ]

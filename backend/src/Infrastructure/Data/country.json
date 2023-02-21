@@ -1,11 +1,7 @@
 [
   {
-    "name": "Admin"
-  },
-  {
-    "name": "User"
-  },
-  {
-    "name": "Promoter"
+    "name": "US",
+    "iso2": "US",
+    "iso3": "USA"
   }
 ]

@@ -1,8 +1,17 @@
 [
   {
-    "name": "Accesorios"
+    "name": "Bailes"
   },
   {
-    "name": "Ropa y Fashion"
+    "name": "Rodeos"
+  },
+  {
+    "name": "Palenques"
+  },
+  {
+    "name": "Comedia"
+  },
+  {
+    "name": "Teatros"
   }
 ]
