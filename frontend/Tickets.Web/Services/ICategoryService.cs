@@ -1,4 +1,5 @@
-﻿using Tickets.Web.Models;
+﻿using Tickets.Web.Areas.Admin.ViewModels;
+using Tickets.Web.Models;
 
 namespace Tickets.Web.Services
 {
@@ -6,8 +7,8 @@ namespace Tickets.Web.Services
     {
         Task<ApiResponse> List();
         Task<ApiResponse> GetById(int id);
-        Task<ApiResponse> Save(Category model);
-        Task<ApiResponse> Edit(Category model);
+        Task<ApiResponse> Save(CategoryVm model);
+        Task<ApiResponse> Edit(CategoryVm model);
         Task<ApiResponse> Delete(int id);
 
     }

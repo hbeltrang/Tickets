@@ -20,7 +20,8 @@
         public const string UserChangeStatusError = "Can't change user status";
         public const string UserUpdateError = "Failed to update user";
         public const string UserAssignRoleError = "Assigned role does not exist";
-        
+
+        public const string ErrorToSave = "Error to save";
         public const string ImageSaveError = "Error to save image";
 
         public const string ErrorTransaction = "Error in transaction";
@@ -31,6 +32,8 @@
         public const string ValidatorNameEmpty = "Name cann't be empty";
         public const string ValidatorLastNameEmpty = "LastName cann't be empty";
         public const string ValidatorPhoneEmpty = "Phone cann't be empty";
+        public const string ValidatorIso2Empty = "Abbreviation 2 cann't be empty";
+        public const string ValidatorIso3Empty = "Abbreviation 3 cann't be empty";
 
 
     }

@@ -3,6 +3,7 @@ using MediatR;
 using Tickets.Application.Features.Categories.Vms;
 using Tickets.Application.Persistence;
 using Tickets.Domain;
+using Tickets.Domain.Common;
 
 namespace Tickets.Application.Features.Categories.Queries.GetCategoryList
 {
@@ -20,7 +21,7 @@ namespace Tickets.Application.Features.Categories.Queries.GetCategoryList
         public async Task<IReadOnlyList<CategoryVm>> Handle(GetCategoryListQuery request, CancellationToken cancellationToken)
         {
             var categories = await _unitOfWork.Repository<Category>().GetAsync(
-                null,
+                x => x.Status == Status.Active,
                 x => x.OrderBy(y => y.Name),
                 string.Empty,
                 false

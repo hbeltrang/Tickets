@@ -11,7 +11,7 @@ namespace Tickets.Infrastructure.Persistance
     {
         public static async Task LoadDataAsync(
             ApplicationDbContext context,
-            UserManager<ApplicationUser> usuarioManager,
+            UserManager<ApplicationUser> userManager,
             RoleManager<IdentityRole> roleManager,
             ILoggerFactory loggerFactory
         )
@@ -20,13 +20,15 @@ namespace Tickets.Infrastructure.Persistance
             {
                 if (!roleManager.Roles.Any())
                 {
+                    await roleManager.CreateAsync(new IdentityRole(Role.APIADMIN));
                     await roleManager.CreateAsync(new IdentityRole(Role.ADMIN));
                     await roleManager.CreateAsync(new IdentityRole(Role.USER));
+                    await roleManager.CreateAsync(new IdentityRole(Role.PROMOTER));
                 }
 
-                if (!usuarioManager.Users.Any())
+                if (!userManager.Users.Any())
                 {
-                    var usuario = new ApplicationUser
+                    var userAdmin = new ApplicationUser
                     {
                         Name = "Heri",
                         LastName = "Admin",
@@ -35,10 +37,23 @@ namespace Tickets.Infrastructure.Persistance
                         Phone = "",
                         AvatarUrl = "",
                     };
-                    await usuarioManager.CreateAsync(usuario, "Heri123$");
-                    await usuarioManager.AddToRoleAsync(usuario, Role.ADMIN);
+                    await userManager.CreateAsync(userAdmin, "Heri123$");
+                    await userManager.AddToRoleAsync(userAdmin, Role.ADMIN);
 
-                    var usuarioAdmin = new ApplicationUser
+                    var userAdminApi = new ApplicationUser
+                    {
+                        Name = "Admin",
+                        LastName = "Api",
+                        Email = "adminapi@gmail.com",
+                        UserName = "adminapi",
+                        Phone = "",
+                        AvatarUrl = "",
+                    };
+                    await userManager.CreateAsync(userAdminApi, "AdminApi123$");
+                    await userManager.AddToRoleAsync(userAdminApi, Role.APIADMIN);
+
+
+                    var user = new ApplicationUser
                     {
                         Name = "User",
                         LastName = "Test",
@@ -47,8 +62,8 @@ namespace Tickets.Infrastructure.Persistance
                         Phone = "",
                         AvatarUrl = "",
                     };
-                    await usuarioManager.CreateAsync(usuarioAdmin, "User123$");
-                    await usuarioManager.AddToRoleAsync(usuarioAdmin, Role.USER);
+                    await userManager.CreateAsync(user, "User123$");
+                    await userManager.AddToRoleAsync(user, Role.USER);
 
                 }
 

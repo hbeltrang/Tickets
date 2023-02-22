@@ -12,8 +12,8 @@ using Tickets.Infrastructure.Persistance;
 namespace Tickets.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230220032859_01 - Initial")]
-    partial class _01Initial
+    [Migration("20230222002718_01 - Intial")]
+    partial class _01Intial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -1,4 +1,6 @@
-﻿namespace Tickets.Application.Features.Countries.Vms
+﻿using Tickets.Domain.Common;
+
+namespace Tickets.Application.Features.Countries.Vms
 {
     public class CountryVm
     {
@@ -7,6 +9,6 @@
 
         public string? Iso2 { get; set; }
         public string? Iso3 { get; set; }
-        public bool IsActive { get; set; }
+        public Status? Status { get; set; }
     }
 }

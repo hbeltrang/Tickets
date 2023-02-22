@@ -3,6 +3,7 @@ using MediatR;
 using Tickets.Application.Features.Countries.Vms;
 using Tickets.Application.Persistence;
 using Tickets.Domain;
+using Tickets.Domain.Common;
 
 namespace Tickets.Application.Features.Countries.Queries.GetCountryList
 {
@@ -21,7 +22,7 @@ namespace Tickets.Application.Features.Countries.Queries.GetCountryList
         {
 
             var countries = await _unitOfWork.Repository<Country>().GetAsync(
-                null,
+                x => x.Status == Status.Active,
                 x => x.OrderBy(y => y.Name),
                 string.Empty,
                 false

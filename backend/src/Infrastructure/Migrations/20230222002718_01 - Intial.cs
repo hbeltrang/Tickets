@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Tickets.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class _01Initial : Migration
+    public partial class _01Intial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

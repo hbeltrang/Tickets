@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Net.Http.Headers;
 using System.Text;
+using Tickets.Web.Areas.Admin.ViewModels;
 using Tickets.Web.Models;
 
 namespace Tickets.Web.Services
@@ -52,7 +53,7 @@ namespace Tickets.Web.Services
                 if (response.IsSuccessStatusCode)
                 {
                     var jsonResponse = await response.Content.ReadAsStringAsync();
-                    var result = JsonConvert.DeserializeObject<List<Category>>(jsonResponse);
+                    var result = JsonConvert.DeserializeObject<List<CategoryVm>>(jsonResponse);
 
                     apiResponse.IsSuccess = true;
                     apiResponse.Message = "OK";
@@ -94,7 +95,7 @@ namespace Tickets.Web.Services
                 if (response.IsSuccessStatusCode)
                 {
                     var jsonResponse = await response.Content.ReadAsStringAsync();
-                    var result = JsonConvert.DeserializeObject<Category>(jsonResponse);
+                    var result = JsonConvert.DeserializeObject<CategoryVm>(jsonResponse);
 
                     apiResponse.IsSuccess = true;
                     apiResponse.Message = "OK";
@@ -110,7 +111,7 @@ namespace Tickets.Web.Services
             return apiResponse;
         }
 
-        public async Task<ApiResponse> Save(Category model)
+        public async Task<ApiResponse> Save(CategoryVm model)
         {
             ApiResponse apiResponse = new ApiResponse();
 
@@ -150,7 +151,7 @@ namespace Tickets.Web.Services
             return apiResponse;
         }
 
-        public async Task<ApiResponse> Edit(Category model)
+        public async Task<ApiResponse> Edit(CategoryVm model)
         {
             ApiResponse apiResponse = new ApiResponse();
 
