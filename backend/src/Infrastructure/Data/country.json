@@ -1,7 +1,6 @@
 [
   {
     "name": "US",
-    "iso2": "US",
-    "iso3": "USA"
+    "code": "USA"
   }
 ]

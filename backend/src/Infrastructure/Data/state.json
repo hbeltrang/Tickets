@@ -1,301 +1,301 @@
 [
   {
     "countryid": 1,
-    "state": "Alabama",
+    "name": "Alabama",
     "slug": "alabama",
     "code": "AL"
   },
   {
     "countryid": 1,
-    "state": "Alaska",
+    "name": "Alaska",
     "slug": "alaska",
     "code": "AK"
   },
   {
     "countryid": 1,
-    "state": "Arizona",
+    "name": "Arizona",
     "slug": "arizona",
     "code": "AZ"
   },
   {
     "countryid": 1,
-    "state": "Arkansas",
+    "name": "Arkansas",
     "slug": "arkansas",
     "code": "AR"
   },
   {
     "countryid": 1,
-    "state": "California",
+    "name": "California",
     "slug": "california",
     "code": "CA"
   },
   {
     "countryid": 1,
-    "state": "Colorado",
+    "name": "Colorado",
     "slug": "colorado",
     "code": "CO"
   },
   {
     "countryid": 1,
-    "state": "Connecticut",
+    "name": "Connecticut",
     "slug": "connecticut",
     "code": "CT"
   },
   {
     "countryid": 1,
-    "state": "Delaware",
+    "name": "Delaware",
     "slug": "delaware",
     "code": "DE"
   },
   {
     "countryid": 1,
-    "state": "Florida",
+    "name": "Florida",
     "slug": "florida",
     "code": "FL"
   },
   {
     "countryid": 1,
-    "state": "Georgia",
+    "name": "Georgia",
     "slug": "georgia",
     "code": "GA"
   },
   {
     "countryid": 1,
-    "state": "Hawaii",
+    "name": "Hawaii",
     "slug": "hawaii",
     "code": "HI"
   },
   {
     "countryid": 1,
-    "state": "Idaho",
+    "name": "Idaho",
     "slug": "idaho",
     "code": "ID"
   },
   {
     "countryid": 1,
-    "state": "Illinois",
+    "name": "Illinois",
     "slug": "illinois",
     "code": "IL"
   },
   {
     "countryid": 1,
-    "state": "Indiana",
+    "name": "Indiana",
     "slug": "indiana",
     "code": "IN"
   },
   {
     "countryid": 1,
-    "state": "Iowa",
+    "name": "Iowa",
     "slug": "iowa",
     "code": "IA"
   },
   {
     "countryid": 1,
-    "state": "Kansas",
+    "name": "Kansas",
     "slug": "kansas",
     "code": "KS"
   },
   {
     "countryid": 1,
-    "state": "Kentucky",
+    "name": "Kentucky",
     "slug": "kentucky",
     "code": "KY"
   },
   {
     "countryid": 1,
-    "state": "Louisiana",
+    "name": "Louisiana",
     "slug": "louisiana",
     "code": "LA"
   },
   {
     "countryid": 1,
-    "state": "Maine",
+    "name": "Maine",
     "slug": "maine",
     "code": "ME"
   },
   {
     "countryid": 1,
-    "state": "Maryland",
+    "name": "Maryland",
     "slug": "maryland",
     "code": "MD"
   },
   {
     "countryid": 1,
-    "state": "Massachusetts",
+    "name": "Massachusetts",
     "slug": "massachusetts",
     "code": "MA"
   },
   {
     "countryid": 1,
-    "state": "Michigan",
+    "name": "Michigan",
     "slug": "michigan",
     "code": "MI"
   },
   {
     "countryid": 1,
-    "state": "Minnesota",
+    "name": "Minnesota",
     "slug": "minnesota",
     "code": "MN"
   },
   {
     "countryid": 1,
-    "state": "Mississippi",
+    "name": "Mississippi",
     "slug": "mississippi",
     "code": "MS"
   },
   {
     "countryid": 1,
-    "state": "Missouri",
+    "name": "Missouri",
     "slug": "missouri",
     "code": "MO"
   },
   {
     "countryid": 1,
-    "state": "Montana",
+    "name": "Montana",
     "slug": "montana",
     "code": "MT"
   },
   {
     "countryid": 1,
-    "state": "Nebraska",
+    "name": "Nebraska",
     "slug": "nebraska",
     "code": "NE"
   },
   {
     "countryid": 1,
-    "state": "Nevada",
+    "name": "Nevada",
     "slug": "nevada",
     "code": "NV"
   },
   {
     "countryid": 1,
-    "state": "New Hampshire",
+    "name": "New Hampshire",
     "slug": "new-hampshire",
     "code": "NH"
   },
   {
     "countryid": 1,
-    "state": "New Jersey",
+    "name": "New Jersey",
     "slug": "new-jersey",
     "code": "NJ"
   },
   {
     "countryid": 1,
-    "state": "New Mexico",
+    "name": "New Mexico",
     "slug": "new-mexico",
     "code": "NM"
   },
   {
     "countryid": 1,
-    "state": "New York",
+    "name": "New York",
     "slug": "new-york",
     "code": "NY"
   },
   {
     "countryid": 1,
-    "state": "North Carolina",
+    "name": "North Carolina",
     "slug": "north-carolina",
     "code": "NC"
   },
   {
     "countryid": 1,
-    "state": "North Dakota",
+    "name": "North Dakota",
     "slug": "north-dakota",
     "code": "ND"
   },
   {
     "countryid": 1,
-    "state": "Ohio",
+    "name": "Ohio",
     "slug": "ohio",
     "code": "OH"
   },
   {
     "countryid": 1,
-    "state": "Oklahoma",
+    "name": "Oklahoma",
     "slug": "oklahoma",
     "code": "OK"
   },
   {
     "countryid": 1,
-    "state": "Oregon",
+    "name": "Oregon",
     "slug": "oregon",
     "code": "OR"
   },
   {
     "countryid": 1,
-    "state": "Pennsylvania",
+    "name": "Pennsylvania",
     "slug": "pennsylvania",
     "code": "PA"
   },
   {
     "countryid": 1,
-    "state": "Rhode Island",
+    "name": "Rhode Island",
     "slug": "rhode-island",
     "code": "RI"
   },
   {
     "countryid": 1,
-    "state": "South Carolina",
+    "name": "South Carolina",
     "slug": "south-carolina",
     "code": "SC"
   },
   {
     "countryid": 1,
-    "state": "South Dakota",
+    "name": "South Dakota",
     "slug": "south-dakota",
     "code": "SD"
   },
   {
     "countryid": 1,
-    "state": "Tennessee",
+    "name": "Tennessee",
     "slug": "tennessee",
     "code": "TN"
   },
   {
     "countryid": 1,
-    "state": "Texas",
+    "name": "Texas",
     "slug": "texas",
     "code": "TX"
   },
   {
     "countryid": 1,
-    "state": "Utah",
+    "name": "Utah",
     "slug": "utah",
     "code": "UT"
   },
   {
     "countryid": 1,
-    "state": "Vermont",
+    "name": "Vermont",
     "slug": "vermont",
     "code": "VT"
   },
   {
     "countryid": 1,
-    "state": "Virginia",
+    "name": "Virginia",
     "slug": "virginia",
     "code": "VA"
   },
   {
     "countryid": 1,
-    "state": "Washington",
+    "name": "Washington",
     "slug": "washington",
     "code": "WA"
   },
   {
     "countryid": 1,
-    "state": "West Virginia",
+    "name": "West Virginia",
     "slug": "west-virginia",
     "code": "WV"
   },
   {
     "countryid": 1,
-    "state": "Wisconsin",
+    "name": "Wisconsin",
     "slug": "wisconsin",
     "code": "WI"
   },
   {
     "countryid": 1,
-    "state": "Wyoming",
+    "name": "Wyoming",
     "slug": "wyoming",
     "code": "WY"
   }

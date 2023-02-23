@@ -30,8 +30,7 @@ namespace Tickets.Application.Features.Countries.Commands.CreateCountry
             var entity = new Country
             {
                 Name = request.Name,
-                Iso2 = request.Iso2,
-                Iso3 = request.Iso3,
+                Code = request.Code,
             };
 
             _unitOfWork.Repository<Country>().AddEntity(entity);

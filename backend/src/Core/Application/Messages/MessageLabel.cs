@@ -32,9 +32,8 @@
         public const string ValidatorNameEmpty = "Name cann't be empty";
         public const string ValidatorLastNameEmpty = "LastName cann't be empty";
         public const string ValidatorPhoneEmpty = "Phone cann't be empty";
-        public const string ValidatorIso2Empty = "Abbreviation 2 cann't be empty";
-        public const string ValidatorIso3Empty = "Abbreviation 3 cann't be empty";
-
+        public const string ValidatorAbbreviationEmpty = "Abbreviation cann't be empty";
+        public const string ValidatorCountryEmpty = "Country cann't be empty";
 
     }
 }

@@ -4,6 +4,7 @@ using Tickets.Web.Models;
 
 namespace Tickets.Web.Controllers
 {
+    [Route("home")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -13,6 +14,9 @@ namespace Tickets.Web.Controllers
             _logger = logger;
         }
 
+        [Route("")]
+        [Route("index")]
+        [Route("~/")]
         public IActionResult Index()
         {
             return View();
