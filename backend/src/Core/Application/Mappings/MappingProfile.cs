@@ -2,6 +2,9 @@
 using Tickets.Application.Features.Categories.Commands.CreateCategory;
 using Tickets.Application.Features.Categories.Commands.UpdateCategory;
 using Tickets.Application.Features.Categories.Vms;
+using Tickets.Application.Features.Cities.Commands.CreateCity;
+using Tickets.Application.Features.Cities.Commands.UpdateCity;
+using Tickets.Application.Features.Cities.Vms;
 using Tickets.Application.Features.Countries.Commands.CreateCountry;
 using Tickets.Application.Features.Countries.Commands.UpdateCountry;
 using Tickets.Application.Features.Countries.Vms;
@@ -28,6 +31,14 @@ namespace Tickets.Application.Mappings
                  .ForMember(p => p.CountryName, x => x.MapFrom(a => a.Country!.Name));
             CreateMap<CreateStateCommand, State>();
             CreateMap<UpdateStateCommand, State>();
+
+            CreateMap<City, CityVm>()
+                 .ForMember(p => p.CountryName, x => x.MapFrom(a => a.Country!.Name))
+                 .ForMember(p => p.StateName, x => x.MapFrom(a => a.State!.Name));
+            CreateMap<CreateCityCommand, City>();
+            CreateMap<UpdateCityCommand, City>();
+
+
 
         }
     }

@@ -26,6 +26,9 @@ namespace Tickets.Application.Features.States.Commands.UpdateState
                 throw new NotFoundException(nameof(State), request.Id);
             }
 
+            var slug = request.Name!.ToLower();
+            request.slug = slug.Replace(" ", "-");
+
             _mapper.Map(request, stateToUpdate, typeof(UpdateStateCommand), typeof(State));
             await _unitOfWork.Repository<State>().UpdateAsync(stateToUpdate);
             await _unitOfWork.Complete();

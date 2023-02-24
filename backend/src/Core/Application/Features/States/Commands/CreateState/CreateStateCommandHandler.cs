@@ -26,6 +26,8 @@ namespace Tickets.Application.Features.States.Commands.CreateState
 
         public async Task<StateVm> Handle(CreateStateCommand request, CancellationToken cancellationToken)
         {
+            var slug = request.Name!.ToLower();
+            request.slug = slug.Replace(" ", "-");
             var stateEntity = _mapper.Map<State>(request);
             await _unitOfWork.Repository<State>().AddAsync(stateEntity);
             await _unitOfWork.Complete();

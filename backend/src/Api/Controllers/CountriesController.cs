@@ -7,8 +7,11 @@ using Tickets.Application.Features.Countries.Commands.DeleteCountry;
 using Tickets.Application.Features.Countries.Commands.UpdateCountry;
 using Tickets.Application.Features.Countries.Queries.GetCountryById;
 using Tickets.Application.Features.Countries.Queries.GetCountryList;
+using Tickets.Application.Features.Countries.Queries.PaginationCountries;
 using Tickets.Application.Features.Countries.Vms;
+using Tickets.Application.Features.Shared.Queries;
 using Tickets.Application.Models.Authorization;
+using Tickets.Domain.Common;
 
 namespace Tickets.Api.Controllers
 {
@@ -67,6 +70,26 @@ namespace Tickets.Api.Controllers
             var request = new DeleteCountryCommand(id);
             return await _mediator.Send(request);
         }
+
+        [AllowAnonymous]
+        [HttpGet("pagination", Name = "PaginationCountries")]
+        [ProducesResponseType(typeof(PaginationVm<CountryVm>), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<PaginationVm<CountryVm>>> PaginationProduct([FromQuery] PaginationCountriesQuery paginationCountriesQuery)
+        {
+            paginationCountriesQuery.Status = Status.Active;
+            var paginationCountries = await _mediator.Send(paginationCountriesQuery);
+            return Ok(paginationCountries);
+        }
+
+        [Authorize(Roles = Role.ADMINOrAPIADMIN)]
+        [HttpGet("paginationAdmin", Name = "PaginationCountriesAdmin")]
+        [ProducesResponseType(typeof(PaginationVm<CountryVm>), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<PaginationVm<CountryVm>>> PaginationAdmin([FromQuery] PaginationCountriesQuery paginationCountriesQuery)
+        {
+            var paginationCountries = await _mediator.Send(paginationCountriesQuery);
+            return Ok(paginationCountries);
+        }
+
 
     }
 }

@@ -2,14 +2,17 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
+using Tickets.Application.Features.Shared.Queries;
 using Tickets.Application.Features.States.Commands.CreateState;
 using Tickets.Application.Features.States.Commands.DeleteState;
 using Tickets.Application.Features.States.Commands.UpdateState;
 using Tickets.Application.Features.States.Queries.GetStateByCountryId;
 using Tickets.Application.Features.States.Queries.GetStateById;
 using Tickets.Application.Features.States.Queries.GetStateList;
+using Tickets.Application.Features.States.Queries.PaginationStates;
 using Tickets.Application.Features.States.Vms;
 using Tickets.Application.Models.Authorization;
+using Tickets.Domain.Common;
 
 namespace Tickets.Api.Controllers
 {
@@ -76,6 +79,25 @@ namespace Tickets.Api.Controllers
         {
             var request = new DeleteStateCommand(id);
             return await _mediator.Send(request);
+        }
+
+        [AllowAnonymous]
+        [HttpGet("pagination", Name = "PaginationStates")]
+        [ProducesResponseType(typeof(PaginationVm<StateVm>), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<PaginationVm<StateVm>>> PaginationProduct([FromQuery] PaginationStatesQuery paginationStatesQuery)
+        {
+            paginationStatesQuery.Status = Status.Active;
+            var paginationStates = await _mediator.Send(paginationStatesQuery);
+            return Ok(paginationStates);
+        }
+
+        [Authorize(Roles = Role.ADMINOrAPIADMIN)]
+        [HttpGet("paginationAdmin", Name = "PaginationStatesAdmin")]
+        [ProducesResponseType(typeof(PaginationVm<StateVm>), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<PaginationVm<StateVm>>> PaginationAdmin([FromQuery] PaginationStatesQuery paginationStatesQuery)
+        {
+            var paginationStates = await _mediator.Send(paginationStatesQuery);
+            return Ok(paginationStates);
         }
 
 

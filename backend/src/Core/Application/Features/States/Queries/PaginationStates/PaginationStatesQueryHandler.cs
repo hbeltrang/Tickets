@@ -1,16 +1,11 @@
 ﻿using AutoMapper;
 using MediatR;
-using Stripe;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Tickets.Application.Features.Shared.Queries;
 using Tickets.Application.Features.States.Vms;
 using Tickets.Application.Persistence;
 using Tickets.Application.Specifications.States;
 using Tickets.Domain;
+using Tickets.Domain.Common;
 
 namespace Tickets.Application.Features.States.Queries.PaginationStates
 {
@@ -38,6 +33,7 @@ namespace Tickets.Application.Features.States.Queries.PaginationStates
 
             var spec = new StateSpecification(stateSpecificationParams);
             var states = await _unitOfWork.Repository<State>().GetAllWithSpec(spec);
+            states = states.Where(x => x.Status == Status.Active).ToList();
 
             var specCount = new StateForCountingSpecification(stateSpecificationParams);
             var totalStates = await _unitOfWork.Repository<State>().CountAsync(specCount);
