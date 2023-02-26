@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System.Configuration;
 using System.Net.Http.Headers;
 using System.Text;
 using Tickets.Web.Models;
@@ -50,7 +49,7 @@ namespace Tickets.Web.Services
                     var result = JsonConvert.DeserializeObject<AuthResponse>(jsonResponse);
                     if (result != null)
                     {
-                        apiResponse.IsSuccess = false;
+                        apiResponse.IsSuccess = true;
                         apiResponse.Message = "OK";
                         apiResponse.Result = result;
                     }
@@ -92,7 +91,7 @@ namespace Tickets.Web.Services
                     var result = JsonConvert.DeserializeObject<AuthResponse>(jsonResponse);
                     if (result != null)
                     {
-                        apiResponse.IsSuccess = false;
+                        apiResponse.IsSuccess = true;
                         apiResponse.Message = "OK";
                         apiResponse.Result = result;
                     }

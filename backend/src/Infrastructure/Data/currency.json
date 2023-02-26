@@ -1,12 +1,12 @@
 [
   {
-    "name": "Facebook",
-    "page": "https://www.facebook.com",
-    "status": 1
+    "name": "Dolar USD",
+    "code": "usd",
+    "isdefault": 1
   },
   {
-    "name": "Whatsapp",
-    "page": "https://wa.me/160212345678",
-    "status": 1
+    "name": "Peso Mexicano",
+    "page": "mxn",
+    "isdefault": 0
   }
 ]

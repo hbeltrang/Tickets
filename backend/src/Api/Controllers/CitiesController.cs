@@ -27,7 +27,7 @@ namespace Tickets.Api.Controllers
             _mediator = mediator;
         }
 
-        [AllowAnonymous]
+        [Authorize(Roles = Role.ADMINOrAPIADMIN)]
         [HttpGet(Name = "GetCities")]
         [ProducesResponseType(typeof(IReadOnlyList<CityVm>), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<IReadOnlyList<CityVm>>> GetCities()
@@ -37,7 +37,7 @@ namespace Tickets.Api.Controllers
             return Ok(cities);
         }
 
-        [AllowAnonymous]
+        [Authorize(Roles = Role.ADMINOrAPIADMIN)]
         [HttpGet("{id}", Name = "GetCityById")]
         [ProducesResponseType(typeof(CityVm), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<CityVm>> GetCityById(int id)
@@ -47,7 +47,7 @@ namespace Tickets.Api.Controllers
 
         }
 
-        [AllowAnonymous]
+        [Authorize(Roles = Role.ADMINOrAPIADMIN)]
         [HttpGet("country/{countryid}/state/{stateid}", Name = "GetCityByCountryStateId")]
         [ProducesResponseType(typeof(IReadOnlyList<CityVm>), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<IReadOnlyList<CityVm>>> GetCityByCountryStateId(int countryid, int stateid)

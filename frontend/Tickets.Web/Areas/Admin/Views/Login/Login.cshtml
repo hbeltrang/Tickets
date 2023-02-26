@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Login
+@{
     Layout = "~/Areas/Admin/Views/Shared/_LayoutEmpty.cshtml";
 }
 
@@ -10,10 +11,13 @@
             </div>
             <div class="card-body">
                 <p class="login-box-msg">Ingresa tus credenciales</p>
-
+                @Html.AntiForgeryToken()
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <form asp-area="Admin" asp-controller="login" asp-action="Login" method="post">
                     <div class="input-group mb-3">
-                        <input type="email" class="form-control" placeholder="Email">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Email" })
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-envelope"></span>
@@ -21,7 +25,8 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" placeholder="Password">
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password" })
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
@@ -47,10 +52,10 @@
 
                 
                 <p class="mb-1">
-                <a asp-area="Admin" asp-controller="login" action="forgotpassword">Olvidaste t&uacute; contrase&ntilde;a?</a>
+                <a asp-area="Admin" asp-controller="Login" action="Forgotpassword">Olvidaste t&uacute; contrase&ntilde;a?</a>
                 </p>
                 <p class="mb-0">
-                    <a asp-area="Admin" asp-controller="login" action="register" class="text-center">Crear cuenta</a>
+                    <a asp-area="Admin" asp-controller="Login" action="RegisterUser" class="text-center">Crear cuenta.</a>
                 </p>
             </div>
             <!-- /.card-body -->

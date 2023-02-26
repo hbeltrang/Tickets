@@ -1,10 +1,10 @@
 [
   {
     "name": "Facebook",
-    "code": "https://www.facebook.com/boletix"
+    "url": "https://www.facebook.com/boletix"
   },
   {
     "name": "Youtube",
-    "code": "https://www.youtube.com/boletix"
+    "url": "https://www.youtube.com/boletix"
   }
 ]

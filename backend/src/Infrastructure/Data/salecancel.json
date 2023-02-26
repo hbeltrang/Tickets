@@ -1,0 +1,12 @@
+[
+  {
+    "saleid": 1,
+    "fecha": "03/15/2023",
+    "userid": "admin",
+    "comment": "se cancela a solicitud del cliente",
+    "paymenttype": "stripe",
+    "paymentstatus": "completed",
+    "paymentid": "SyupoRE365",
+    "paymentdate": "02/24/2023"
+  }
+]

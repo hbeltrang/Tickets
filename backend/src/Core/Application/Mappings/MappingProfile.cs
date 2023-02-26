@@ -8,9 +8,22 @@ using Tickets.Application.Features.Cities.Vms;
 using Tickets.Application.Features.Countries.Commands.CreateCountry;
 using Tickets.Application.Features.Countries.Commands.UpdateCountry;
 using Tickets.Application.Features.Countries.Vms;
+using Tickets.Application.Features.Privacy.Commands.CreatePrivacy;
+using Tickets.Application.Features.Privacy.Commands.UpdatePrivacy;
+using Tickets.Application.Features.Privacy.Vms;
+using Tickets.Application.Features.SocialImages.Vms;
+using Tickets.Application.Features.Socials.Commands.CreateSocial;
+using Tickets.Application.Features.Socials.Commands.UpdateSocial;
+using Tickets.Application.Features.Socials.Vms;
 using Tickets.Application.Features.States.Commands.CreateState;
 using Tickets.Application.Features.States.Commands.UpdateState;
 using Tickets.Application.Features.States.Vms;
+using Tickets.Application.Features.Taxes.Commands.CreateTax;
+using Tickets.Application.Features.Taxes.Commands.UpdateTax;
+using Tickets.Application.Features.Taxes.Vms;
+using Tickets.Application.Features.Terms.Commands.CreateTerm;
+using Tickets.Application.Features.Terms.Commands.UpdateTerm;
+using Tickets.Application.Features.Terms.Vms;
 using Tickets.Domain;
 
 namespace Tickets.Application.Mappings
@@ -37,6 +50,24 @@ namespace Tickets.Application.Mappings
                  .ForMember(p => p.StateName, x => x.MapFrom(a => a.State!.Name));
             CreateMap<CreateCityCommand, City>();
             CreateMap<UpdateCityCommand, City>();
+
+            CreateMap<Tax, TaxVm>();
+            CreateMap<CreateTaxCommand, Tax>();
+            CreateMap<UpdateTaxCommand, Tax>();
+
+            CreateMap<Term, TermVm>();
+            CreateMap<CreateTermCommand, Term>();
+            CreateMap<UpdateTermCommand, Term>();
+
+            CreateMap<PrivacyPolicy, PrivacyVm>();
+            CreateMap<CreatePrivacyCommand, PrivacyPolicy>();
+            CreateMap<UpdatePrivacyCommand, PrivacyPolicy>();
+
+            CreateMap<SocialImage, SocialImageVm>();
+            CreateMap<CreateSocialImageCommand, SocialImage>();
+            CreateMap<Social, SocialVm>();
+            CreateMap<CreateSocialCommand, Social>();
+            CreateMap<UpdateSocialCommand, Social>();
 
 
 

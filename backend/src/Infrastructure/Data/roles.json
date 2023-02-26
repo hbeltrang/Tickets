@@ -3,6 +3,9 @@
     "name": "Admin"
   },
   {
+    "name": "ApiAdmin"
+  },
+  {
     "name": "User"
   },
   {

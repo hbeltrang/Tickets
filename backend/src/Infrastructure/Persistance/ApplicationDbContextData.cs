@@ -77,11 +77,52 @@ namespace Tickets.Infrastructure.Persistance
 
                 if (!context.Countries!.Any())
                 {
-                    var countryData = File.ReadAllText("../Infrastructure/Data/countries.json");
+                    var countryData = File.ReadAllText("../Infrastructure/Data/country.json");
                     var countries = JsonConvert.DeserializeObject<List<Country>>(countryData);
                     await context.Countries!.AddRangeAsync(countries!);
                     await context.SaveChangesAsync();
                 }
+
+                if (!context.States!.Any())
+                {
+                    var stateData = File.ReadAllText("../Infrastructure/Data/state.json");
+                    var states = JsonConvert.DeserializeObject<List<State>>(stateData);
+                    await context.States!.AddRangeAsync(states!);
+                    await context.SaveChangesAsync();
+                }
+
+                if (!context.Cities!.Any())
+                {
+                    var cityData = File.ReadAllText("../Infrastructure/Data/city.json");
+                    var cities = JsonConvert.DeserializeObject<List<City>>(cityData);
+                    await context.Cities!.AddRangeAsync(cities!);
+                    await context.SaveChangesAsync();
+                }
+
+                if (!context.Taxes!.Any())
+                {
+                    var taxData = File.ReadAllText("../Infrastructure/Data/tax.json");
+                    var taxes = JsonConvert.DeserializeObject<List<Tax>>(taxData);
+                    await context.Taxes!.AddRangeAsync(taxes!);
+                    await context.SaveChangesAsync();
+                }
+
+                if (!context.Terms!.Any())
+                {
+                    var taxData = File.ReadAllText("../Infrastructure/Data/term.json");
+                    var taxes = JsonConvert.DeserializeObject<List<Tax>>(taxData);
+                    await context.Taxes!.AddRangeAsync(taxes!);
+                    await context.SaveChangesAsync();
+                }
+
+                if (!context.Privacys!.Any())
+                {
+                    var taxData = File.ReadAllText("../Infrastructure/Data/privacypolicy.json");
+                    var taxes = JsonConvert.DeserializeObject<List<Tax>>(taxData);
+                    await context.Taxes!.AddRangeAsync(taxes!);
+                    await context.SaveChangesAsync();
+                }
+
 
             }
             catch (Exception e)

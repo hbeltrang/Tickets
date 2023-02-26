@@ -23,7 +23,7 @@ namespace Tickets.Api.Controllers
             _mediator = mediator;
         }
 
-        [AllowAnonymous]
+        [Authorize(Roles = Role.ADMINOrAPIADMIN)]
         [HttpGet(Name = "GetCategories")]
         [ProducesResponseType(typeof(IReadOnlyList<CategoryVm>), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<IReadOnlyList<CategoryVm>>> GetCategories()
@@ -33,7 +33,7 @@ namespace Tickets.Api.Controllers
             return Ok(categories);
         }
 
-        [AllowAnonymous]
+        [Authorize(Roles = Role.ADMINOrAPIADMIN)]
         [HttpGet("{id}", Name = "GetCategoryById")]
         [ProducesResponseType(typeof(CategoryVm), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<CategoryVm>> GetCategoryById(int id)

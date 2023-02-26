@@ -35,6 +35,7 @@
         public const string ValidatorAbbreviationEmpty = "Abbreviation cann't be empty";
         public const string ValidatorCountryEmpty = "Country cann't be empty";
         public const string ValidatorStateEmpty = "State cann't be empty";
+        public const string ValidatorPercentEmpty = "Percent cann't be empty";
 
     }
 }

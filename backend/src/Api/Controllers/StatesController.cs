@@ -27,7 +27,7 @@ namespace Tickets.Api.Controllers
             _mediator = mediator;
         }
 
-        [AllowAnonymous]
+        [Authorize(Roles = Role.ADMINOrAPIADMIN)]
         [HttpGet(Name = "GetStates")]
         [ProducesResponseType(typeof(IReadOnlyList<StateVm>), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<IReadOnlyList<StateVm>>> GetStates()
@@ -37,7 +37,7 @@ namespace Tickets.Api.Controllers
             return Ok(states);
         }
 
-        [AllowAnonymous]
+        [Authorize(Roles = Role.ADMINOrAPIADMIN)]
         [HttpGet("{id}", Name = "GetStateById")]
         [ProducesResponseType(typeof(StateVm), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<StateVm>> GetStateById(int id)
@@ -47,7 +47,7 @@ namespace Tickets.Api.Controllers
 
         }
 
-        [AllowAnonymous]
+        [Authorize(Roles = Role.ADMINOrAPIADMIN)]
         [HttpGet("country/{id}", Name = "GetStateByCountryId")]
         [ProducesResponseType(typeof(IReadOnlyList<StateVm>), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<IReadOnlyList<StateVm>>> GetStateByCountryId(int id)

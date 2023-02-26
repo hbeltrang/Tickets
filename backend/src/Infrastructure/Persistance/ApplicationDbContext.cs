@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using Stripe;
 using Tickets.Domain;
 using Tickets.Domain.Common;
 
@@ -47,9 +48,23 @@ namespace Tickets.Infrastructure.Persistance
             builder.Entity<IdentityRole>().Property(x => x.Id).HasMaxLength(36);
             builder.Entity<IdentityRole>().Property(x => x.NormalizedName).HasMaxLength(90);
 
+            builder.Entity<Social>()
+                .HasMany(p => p.SocialImages)
+                .WithOne(r => r.Social)
+                .HasForeignKey(r => r.SocialId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Cascade); //si borra social se borran todas las images en cascada
         }
 
         public DbSet<Category>? Categories { get; set; }
         public DbSet<Country>? Countries { get; set; }
+        public DbSet<State>? States { get; set; }
+        public DbSet<City>? Cities { get; set; }
+        public DbSet<Tax>? Taxes { get; set; }
+        public DbSet<Term>? Terms { get; set; }
+        public DbSet<PrivacyPolicy>? Privacys { get; set; }
+        public DbSet<SocialImage>? SocialImages { get; set; }
+        public DbSet<Social>? Socials { get; set; }
+
     }
 }
