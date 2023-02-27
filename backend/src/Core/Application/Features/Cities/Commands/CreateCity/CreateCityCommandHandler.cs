@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
 using Tickets.Application.Features.Cities.Vms;
+using Tickets.Application.Messages;
 using Tickets.Application.Persistence;
 using Tickets.Domain;
 
@@ -22,7 +23,12 @@ namespace Tickets.Application.Features.Cities.Commands.CreateCity
         {
             var entity = _mapper.Map<City>(request);
             await _unitOfWork.Repository<City>().AddAsync(entity);
-            await _unitOfWork.Complete();
+            var result = await _unitOfWork.Complete();
+
+            if (result <= 0)
+            {
+                throw new Exception("City: " + MessageLabel.ErrorToSave);
+            }
 
             return _mapper.Map<CityVm>(entity);
         }

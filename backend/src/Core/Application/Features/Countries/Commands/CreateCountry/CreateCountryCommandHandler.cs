@@ -1,12 +1,5 @@
 ﻿using AutoMapper;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Tickets.Application.Features.Categories.Commands.CreateCategory;
-using Tickets.Application.Features.Categories.Vms;
 using Tickets.Application.Features.Countries.Vms;
 using Tickets.Application.Messages;
 using Tickets.Application.Persistence;
@@ -34,9 +27,9 @@ namespace Tickets.Application.Features.Countries.Commands.CreateCountry
             };
 
             _unitOfWork.Repository<Country>().AddEntity(entity);
-            var resultado = await _unitOfWork.Complete();
+            var result = await _unitOfWork.Complete();
 
-            if (resultado <= 0)
+            if (result <= 0)
             {
                 throw new Exception("Country: " + MessageLabel.ErrorToSave);
             }

@@ -55,9 +55,9 @@ namespace Tickets.Application.Features.Taxes.Commands.CreateTax
             };
 
             _unitOfWork.Repository<Tax>().AddEntity(entity);
-            var resultado = await _unitOfWork.Complete();
+            var result = await _unitOfWork.Complete();
 
-            if (resultado <= 0)
+            if (result <= 0)
             {
                 throw new Exception("Tax: " + MessageLabel.ErrorToSave);
             }

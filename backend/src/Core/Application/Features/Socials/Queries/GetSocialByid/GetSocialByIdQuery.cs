@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using Tickets.Application.Features.Socials.Vms;
 
-namespace Tickets.Application.Features.Socials.Queries.GetSocialByid
+namespace Tickets.Application.Features.Socials.Queries.GetSocialById
 {
     public class GetSocialByIdQuery : IRequest<SocialVm>
     {

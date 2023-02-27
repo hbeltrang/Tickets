@@ -26,7 +26,7 @@ namespace Tickets.Api.Controllers
         [Authorize(Roles = Role.ADMINOrAPIADMIN)]
         [HttpGet(Name = "GetTerms")]
         [ProducesResponseType(typeof(IReadOnlyList<TermVm>), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<IReadOnlyList<TermVm>>> GetTermes()
+        public async Task<ActionResult<IReadOnlyList<TermVm>>> GetTerms()
         {
             var query = new GetTermListQuery();
             var terms = await _mediator.Send(query);

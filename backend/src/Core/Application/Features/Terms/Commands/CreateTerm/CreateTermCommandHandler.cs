@@ -27,9 +27,9 @@ namespace Tickets.Application.Features.Terms.Commands.CreateTerm
             };
 
             _unitOfWork.Repository<Term>().AddEntity(entity);
-            var resultado = await _unitOfWork.Complete();
+            var result = await _unitOfWork.Complete();
 
-            if (resultado <= 0)
+            if (result <= 0)
             {
                 throw new Exception("Term: " + MessageLabel.ErrorToSave);
             }

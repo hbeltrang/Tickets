@@ -26,9 +26,9 @@ namespace Tickets.Application.Features.Categories.Commands.CreateCategory
             };
 
             _unitOfWork.Repository<Category>().AddEntity(entity);
-            var resultado = await _unitOfWork.Complete();
+            var result = await _unitOfWork.Complete();
 
-            if (resultado <= 0)
+            if (result <= 0)
             {
                 throw new Exception("Category: " + MessageLabel.ErrorToSave);
             }

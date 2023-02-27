@@ -27,9 +27,9 @@ namespace Tickets.Application.Features.Privacy.Commands.CreatePrivacy
             };
 
             _unitOfWork.Repository<PrivacyPolicy>().AddEntity(entity);
-            var resultado = await _unitOfWork.Complete();
+            var result = await _unitOfWork.Complete();
 
-            if (resultado <= 0)
+            if (result <= 0)
             {
                 throw new Exception("PrivacyPolicy: " + MessageLabel.ErrorToSave);
             }

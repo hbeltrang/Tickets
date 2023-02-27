@@ -54,6 +54,14 @@ namespace Tickets.Infrastructure.Persistance
                 .HasForeignKey(r => r.SocialId)
                 .IsRequired()
                 .OnDelete(DeleteBehavior.Cascade); //si borra social se borran todas las images en cascada
+
+            builder.Entity<Company>()
+                .HasMany(p => p.CompanyImages)
+                .WithOne(r => r.Company)
+                .HasForeignKey(r => r.CompanyId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Cascade); //si borra company se borran todas las images en cascada
+
         }
 
         public DbSet<Category>? Categories { get; set; }
@@ -65,6 +73,10 @@ namespace Tickets.Infrastructure.Persistance
         public DbSet<PrivacyPolicy>? Privacys { get; set; }
         public DbSet<SocialImage>? SocialImages { get; set; }
         public DbSet<Social>? Socials { get; set; }
+        public DbSet<CompanyImage>? CompanyImages { get; set; }
+        public DbSet<Company>? Companies { get; set; }
+
+        public DbSet<Promoter>? Promoters { get; set; }
 
     }
 }

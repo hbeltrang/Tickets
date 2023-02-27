@@ -6,7 +6,7 @@ using Tickets.Application.Contracts.Infrastructure;
 using Tickets.Application.Features.Socials.Commands.CreateSocial;
 using Tickets.Application.Features.Socials.Commands.DeleteSocial;
 using Tickets.Application.Features.Socials.Commands.UpdateSocial;
-using Tickets.Application.Features.Socials.Queries.GetSocialByid;
+using Tickets.Application.Features.Socials.Queries.GetSocialById;
 using Tickets.Application.Features.Socials.Queries.GetSocialList;
 using Tickets.Application.Features.Socials.Vms;
 using Tickets.Application.Models.Authorization;

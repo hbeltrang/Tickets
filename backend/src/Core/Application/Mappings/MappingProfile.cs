@@ -5,12 +5,18 @@ using Tickets.Application.Features.Categories.Vms;
 using Tickets.Application.Features.Cities.Commands.CreateCity;
 using Tickets.Application.Features.Cities.Commands.UpdateCity;
 using Tickets.Application.Features.Cities.Vms;
+using Tickets.Application.Features.Companies.Commands.CreateCompany;
+using Tickets.Application.Features.Companies.Commands.UpdateCompany;
+using Tickets.Application.Features.Companies.Vms;
 using Tickets.Application.Features.Countries.Commands.CreateCountry;
 using Tickets.Application.Features.Countries.Commands.UpdateCountry;
 using Tickets.Application.Features.Countries.Vms;
 using Tickets.Application.Features.Privacy.Commands.CreatePrivacy;
 using Tickets.Application.Features.Privacy.Commands.UpdatePrivacy;
 using Tickets.Application.Features.Privacy.Vms;
+using Tickets.Application.Features.Promoters.Commands.CreatePromoter;
+using Tickets.Application.Features.Promoters.Commands.UpdatePromoter;
+using Tickets.Application.Features.Promoters.Vms;
 using Tickets.Application.Features.SocialImages.Vms;
 using Tickets.Application.Features.Socials.Commands.CreateSocial;
 using Tickets.Application.Features.Socials.Commands.UpdateSocial;
@@ -69,6 +75,15 @@ namespace Tickets.Application.Mappings
             CreateMap<CreateSocialCommand, Social>();
             CreateMap<UpdateSocialCommand, Social>();
 
+            CreateMap<CompanyImage, CompanyImageVm>();
+            CreateMap<CreateCompanyImageCommand, CompanyImage>();
+            CreateMap<Company, CompanyVm>();
+            CreateMap<CreateCompanyCommand, Company>();
+            CreateMap<UpdateCompanyCommand, Company>();
+
+            CreateMap<Promoter, PromoterVm>();
+            CreateMap<CreatePromoterCommand, Promoter>();
+            CreateMap<UpdatePromoterCommand, Promoter>();
 
 
         }

@@ -6,9 +6,10 @@
     "phone": "602-98765432",
     "cellphone": "602-98765432",
     "address": "",
-    "promoterfeeamount": 0,
-    "promoterfeepercent": 5.0,
-    "promoteremailcopy": "pedrosanchez@test.com;pedrosanchez01@test.com",
-    "promoteremailbcc": ""
+    "feeamount": 0,
+    "feepercent": 5.0,
+    "notifyemail": "pedrosanchez@test.com;pedrosanchez01@test.com",
+    "notifyemailbcc": "",
+    "notifycellphone": ""
   }
 ]

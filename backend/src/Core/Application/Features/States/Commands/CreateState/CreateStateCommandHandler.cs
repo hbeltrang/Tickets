@@ -1,12 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
-using Stripe;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Tickets.Application.Features.States.Vms;
+using Tickets.Application.Messages;
 using Tickets.Application.Persistence;
 using Tickets.Domain;
 
@@ -30,7 +25,12 @@ namespace Tickets.Application.Features.States.Commands.CreateState
             request.slug = slug.Replace(" ", "-");
             var stateEntity = _mapper.Map<State>(request);
             await _unitOfWork.Repository<State>().AddAsync(stateEntity);
-            await _unitOfWork.Complete();
+            var result = await _unitOfWork.Complete();
+
+            if (result <= 0)
+            {
+                throw new Exception("State: " + MessageLabel.ErrorToSave);
+            }
 
             return _mapper.Map<StateVm>(stateEntity);
         }
