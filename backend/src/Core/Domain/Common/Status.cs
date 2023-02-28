@@ -4,9 +4,9 @@ namespace Tickets.Domain.Common
 {
     public enum Status
     {
-        [EnumMember(Value = "false")]
+        [EnumMember(Value = "0")]
         Inactive,
-        [EnumMember(Value = "true")]
+        [EnumMember(Value = "1")]
         Active
     }
 }

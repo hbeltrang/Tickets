@@ -19,7 +19,6 @@ using Tickets.Infrastructure;
 using Tickets.Infrastructure.ImageCloudinary;
 using Tickets.Infrastructure.Persistance;
 using WatchDog;
-using static Org.BouncyCastle.Math.EC.ECCurve;
 
 var builder = WebApplication.CreateBuilder(args);
 

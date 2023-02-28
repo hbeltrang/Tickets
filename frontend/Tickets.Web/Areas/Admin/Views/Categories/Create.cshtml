@@ -1,0 +1,98 @@
+﻿@model Tickets.Web.Areas.Admin.ViewModels.CategoryVm
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = _localization.Getkey("Create");
+}
+
+<div class="content-wrapper">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>@_localization.Getkey("Category")</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Dashboard" asp-action="Index">@_localization.Getkey("Home")</a></li>
+                        <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Dashboard" asp-action="Index">@_localization.Getkey("Catalogs")</a></li>
+                        <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Categories" asp-action="Index">@_localization.Getkey("Categories")</a></li>
+                        <li class="breadcrumb-item active">@_localization.Getkey("New") @_localization.Getkey("Category")</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                @_localization.Getkey("New") @_localization.Getkey("Category")
+                            </h3>
+                        </div>
+                        <form id="myForm" asp-area="Admin" asp-controller="Categories" asp-action="Create">
+                            <div class="card-body">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <div class="form-group">
+                                    <div class="form-group">
+                                        <label asp-for="Name" class="control-label">@_localization.Getkey("Name")</label>
+                                        <input asp-for="Name" class="form-control" />
+                                        <span asp-validation-for="Name" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group form-check">
+                                    <label class="form-check-label" hidden>
+                                        <input class="form-check-input" asp-for="IsActive" checked="checked" /> @_localization.Getkey("IsActive")
+                                    </label>
+                                </div>                                
+                            </div>
+                            <div class="card-footer">
+                                <a asp-area="Admin" asp-controller="Categories" asp-action="Index" class="btn btn-default">@_localization.Getkey("BackToList")</a>
+                                <input type="submit" value="@_localization.Getkey("Save")" class="btn btn-primary float-right" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script type="text/javascript">
+        $(function () {
+            
+            $.validator.setDefaults({
+                //submitHandler: function () {
+                //  alert( "Form successful submitted!" );
+                //}
+              });
+              $('#myForm').validate({
+                rules: {
+                  Name: {
+                    required: true,
+                  }
+                },
+                messages: {
+                    Name: {
+                        required: "@_localization.Getkey("ValidationFieldRequired")",
+                    },                  
+                },
+                errorElement: 'span',
+                errorPlacement: function (error, element) {
+                  error.addClass('invalid-feedback');
+                  element.closest('.form-group').append(error);
+                },
+                highlight: function (element, errorClass, validClass) {
+                  $(element).addClass('is-invalid');
+                },
+                unhighlight: function (element, errorClass, validClass) {
+                  $(element).removeClass('is-invalid');
+                }
+              });
+
+        });
+    </script>
+
+}

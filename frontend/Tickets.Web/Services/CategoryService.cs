@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System.Net.Http.Headers;
 using System.Text;
 using Tickets.Web.Areas.Admin.ViewModels;
 using Tickets.Web.Models;
@@ -33,21 +32,15 @@ namespace Tickets.Web.Services
 
             try
             {
-                apiResponse = await _userService.LoginApiAdmin();
-
-                if (!apiResponse.IsSuccess)
-                {
-                    return apiResponse;
-                }
-
-                var authResponse = (AuthResponse)apiResponse.Result!;
-                _token = authResponse.Token!;
+                _token = await _userService.GetLoginApiAdminToken();
 
                 var httpClient = new HttpClient();
                 httpClient.BaseAddress = new Uri(_apiURL);
-                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(_token);
+                //httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                httpClient.DefaultRequestHeaders.Add("Authorization", _token);
+                //httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer ", _token);
 
-                var endpoint = "/api/v1/categories";
+                var endpoint = "api/v1/categories";
 
                 var response = await httpClient.GetAsync(endpoint);
                 if (response.IsSuccessStatusCode)
@@ -59,11 +52,17 @@ namespace Tickets.Web.Services
                     apiResponse.Message = "OK";
                     apiResponse.Result = result.ToList();
                 }
+                else
+                {
+                    apiResponse.IsSuccess = false;
+                    apiResponse.Message = "Error categories: " + response.ReasonPhrase!;
+                }
             }
             catch (Exception ex)
             {
                 apiResponse.IsSuccess = false;
                 apiResponse.Message = ex.Message;
+                Console.WriteLine(ex.ToString());
             }
             
             return apiResponse;
@@ -75,21 +74,13 @@ namespace Tickets.Web.Services
 
             try
             {
-                apiResponse = await _userService.LoginApiAdmin();
-
-                if (!apiResponse.IsSuccess)
-                {
-                    return apiResponse;
-                }
-
-                var authResponse = (AuthResponse)apiResponse.Result!;
-                _token = authResponse.Token!;
+                _token = await _userService.GetLoginApiAdminToken();
 
                 var httpClient = new HttpClient();
                 httpClient.BaseAddress = new Uri(_apiURL);
-                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(_token);
+                httpClient.DefaultRequestHeaders.Add("Authorization", _token);
 
-                var endpoint = $"/api/v1/categories/{id}";
+                var endpoint = $"api/v1/categories/{id}";
 
                 var response = await httpClient.GetAsync(endpoint);
                 if (response.IsSuccessStatusCode)
@@ -117,21 +108,13 @@ namespace Tickets.Web.Services
 
             try
             {
-                apiResponse = await _userService.LoginApiAdmin();
-
-                if (!apiResponse.IsSuccess)
-                {
-                    return apiResponse;
-                }
-
-                var authResponse = (AuthResponse)apiResponse.Result!;
-                _token = authResponse.Token!;
+                _token = await _userService.GetLoginApiAdminToken();
 
                 var httpClient = new HttpClient();
                 httpClient.BaseAddress = new Uri(_apiURL);
-                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(_token);
+                httpClient.DefaultRequestHeaders.Add("Authorization", _token);
 
-                var endpoint = $"/api/v1/categories";
+                var endpoint = "api/v1/categories/create";
 
                 var content = new StringContent(JsonConvert.SerializeObject(model), Encoding.UTF8, "application/json");
 
@@ -157,21 +140,13 @@ namespace Tickets.Web.Services
 
             try
             {
-                apiResponse = await _userService.LoginApiAdmin();
-
-                if (!apiResponse.IsSuccess)
-                {
-                    return apiResponse;
-                }
-
-                var authResponse = (AuthResponse)apiResponse.Result!;
-                _token = authResponse.Token!;
+                _token = await _userService.GetLoginApiAdminToken();
 
                 var httpClient = new HttpClient();
                 httpClient.BaseAddress = new Uri(_apiURL);
-                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(_token);
+                httpClient.DefaultRequestHeaders.Add("Authorization", _token);
 
-                var endpoint = $"/api/v1/categories";
+                var endpoint = "api/v1/categories/update";
 
                 var content = new StringContent(JsonConvert.SerializeObject(model), Encoding.UTF8, "application/json");
 
@@ -198,21 +173,13 @@ namespace Tickets.Web.Services
 
             try
             {
-                apiResponse = await _userService.LoginApiAdmin();
-
-                if (!apiResponse.IsSuccess)
-                {
-                    return apiResponse;
-                }
-
-                var authResponse = (AuthResponse)apiResponse.Result!;
-                _token = authResponse.Token!;
+                _token = await _userService.GetLoginApiAdminToken();
 
                 var httpClient = new HttpClient();
                 httpClient.BaseAddress = new Uri(_apiURL);
-                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(_token);
+                httpClient.DefaultRequestHeaders.Add("Authorization", _token);
 
-                var endpoint = $"/api/v1/categories/{id}";
+                var endpoint = $"api/v1/categories/{id}";
 
                 var response = await httpClient.DeleteAsync(endpoint);
                 if (response.IsSuccessStatusCode)

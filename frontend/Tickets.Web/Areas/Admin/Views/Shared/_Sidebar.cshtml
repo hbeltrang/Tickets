@@ -2,7 +2,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-        <img src="~/adminlte/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <img src="~/adminlte/dist/img/AdminLTELogo.png" alt="Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">Boletix</span>
     </a>
 
@@ -28,7 +28,7 @@
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
-                            Empresa
+                            @_localization.Getkey("Company")
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
@@ -36,31 +36,31 @@
                         <li class="nav-item">
                             <a href="pages/layout/boxed.html" class="nav-link">
                                 <i class="far nav-icon"></i>
-                                <p>General</p>
+                                <p>@_localization.Getkey("Configuration")</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
                                 <i class="far  nav-icon"></i>
-                                <p>Stripe Connect</p>
+                                <p>@_localization.Getkey("StripeConnect")</p>
                             </a>
                         </li>                        
                         <li class="nav-item">
                             <a href="pages/layout/boxed.html" class="nav-link">
                                 <i class="far  nav-icon"></i>
-                                <p>T&eacute;rminos y Condiciones</p>
+                                <p>@_localization.Getkey("TermsAndConditions")</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="pages/layout/boxed.html" class="nav-link">
                                 <i class="far  nav-icon"></i>
-                                <p>Pol&iacute;tica de privacidad</p>
+                                <p>@_localization.Getkey("PrivacyPolicy")</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="pages/layout/boxed.html" class="nav-link">
                                 <i class="far  nav-icon"></i>
-                                <p>Redes Sociales</p>
+                                <p>@_localization.Getkey("SocialNetwork")</p>
                             </a>
                         </li>
                     </ul>
@@ -69,7 +69,7 @@
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-copy"></i>
                         <p>
-                            Cat&aacute;logos
+                            @_localization.Getkey("Catalogs")
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
@@ -77,55 +77,55 @@
                         <li class="nav-item">
                             <a href="pages/layout/top-nav.html" class="nav-link">
                                 <i class="far  nav-icon"></i>
-                                <p>Pa&iacute;ses</p>
+                                <p>@_localization.Getkey("Countries")</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
                                 <i class="far  nav-icon"></i>
-                                <p>Estados</p>
+                                <p>@_localization.Getkey("States")</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a asp-area="Admin" asp-controller="Categories" asp-action="Index" class="nav-link">
                                 <i class="far  nav-icon"></i>
-                                <p>Categor&iacute;as</p>
+                                <p>@_localization.Getkey("Categories")</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="pages/layout/boxed.html" class="nav-link">
                                 <i class="far  nav-icon"></i>
-                                <p>Ciudades</p>
+                                <p>@_localization.Getkey("Cities")</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="pages/layout/fixed-sidebar.html" class="nav-link">
                                 <i class="far  nav-icon"></i>
-                                <p>Tipos de Monedas</p>
+                                <p>@_localization.Getkey("Currencies")</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="pages/layout/fixed-sidebar-custom.html" class="nav-link">
                                 <i class="far  nav-icon"></i>
-                                <p>Roles</small></p>
+                                <p>@_localization.Getkey("Roles")</small></p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="pages/layout/fixed-topnav.html" class="nav-link">
                                 <i class="far  nav-icon"></i>
-                                <p>Impuestos</p>
+                                <p>@_localization.Getkey("Taxes")</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="pages/layout/fixed-topnav.html" class="nav-link">
                                 <i class="far  nav-icon"></i>
-                                <p>Contacto</p>
+                                <p>@_localization.Getkey("Contact")</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="pages/layout/fixed-topnav.html" class="nav-link">
                                 <i class="far  nav-icon"></i>
-                                <p>Preguntas Frecuentes</p>
+                                <p>@_localization.Getkey("Faqs")</p>
                             </a>
                         </li>
                     </ul>
@@ -134,7 +134,7 @@
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-calendar-alt"></i>
                         <p>
-                            Eventos
+                            @_localization.Getkey("Events")
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
@@ -142,25 +142,25 @@
                         <li class="nav-item">
                             <a href="pages/charts/chartjs.html" class="nav-link">
                                 <i class="far  nav-icon"></i>
-                                <p>Nuevo Evento</p>
+                                <p>@_localization.Getkey("New") @_localization.Getkey("Event")</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="pages/charts/flot.html" class="nav-link">
                                 <i class="far  nav-icon"></i>
-                                <p>Consulta Eventos</p>
+                                <p>@_localization.Getkey("Consult") @_localization.Getkey("Events")</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="pages/charts/inline.html" class="nav-link">
                                 <i class="far  nav-icon"></i>
-                                <p>Categorias de Eventos</p>
+                                <p>@_localization.Getkey("EventCategories")</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="pages/charts/uplot.html" class="nav-link">
                                 <i class="far  nav-icon"></i>
-                                <p>Reseñas</p>
+                                <p>@_localization.Getkey("Reviews")</p>
                             </a>
                         </li>
                     </ul>
@@ -169,7 +169,7 @@
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-book"></i>
                         <p>
-                            Boletos
+                            @_localization.Getkey("Tickets")
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
@@ -177,19 +177,19 @@
                         <li class="nav-item">
                             <a href="pages/charts/flot.html" class="nav-link">
                                 <i class="far  nav-icon"></i>
-                                <p>Consulta Eventos</p>
+                                <p>@_localization.Getkey("Consult") @_localization.Getkey("Events")</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="pages/charts/inline.html" class="nav-link">
                                 <i class="far  nav-icon"></i>
-                                <p>Categorias de Eventos</p>
+                                <p>@_localization.Getkey("EventCategories")</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="pages/charts/uplot.html" class="nav-link">
                                 <i class="far  nav-icon"></i>
-                                <p>Reseñas</p>
+                                <p>@_localization.Getkey("Reviews")</p>
                             </a>
                         </li>
                     </ul>
@@ -198,7 +198,7 @@
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-chart-pie"></i>
                         <p>
-                            Reportes
+                            @_localization.Getkey("Reports")
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
@@ -206,19 +206,19 @@
                         <li class="nav-item">
                             <a href="pages/charts/flot.html" class="nav-link">
                                 <i class="far  nav-icon"></i>
-                                <p>Compras</p>
+                                <p>@_localization.Getkey("Sales")</p>
                             </a>
                         </li>      
                         <li class="nav-item">
                             <a href="pages/charts/flot.html" class="nav-link">
                                 <i class="far  nav-icon"></i>
-                                <p>Clientes</p>
+                                <p>@_localization.Getkey("Clients")</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="pages/charts/flot.html" class="nav-link">
                                 <i class="far  nav-icon"></i>
-                                <p>Reenviar boleto</p>
+                                <p>@_localization.Getkey("Resend") @_localization.Getkey("Ticket")</p>
                             </a>
                         </li>
                     </ul>
@@ -227,7 +227,7 @@
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-columns"></i>
                         <p>
-                            Admin Promotor
+                            @_localization.Getkey("Admin") @_localization.Getkey("Promoter")
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
@@ -235,7 +235,7 @@
                         <li class="nav-item">
                             <a href="pages/layout/boxed.html" class="nav-link">
                                 <i class="far  nav-icon"></i>
-                                <p>Usuarios</p>
+                                <p>@_localization.Getkey("Users")</p>
                             </a>
                         </li>
                     </ul>
@@ -244,7 +244,7 @@
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-columns"></i>
                         <p>
-                            Admin
+                            @_localization.Getkey("Admin")
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
@@ -252,19 +252,19 @@
                         <li class="nav-item">
                             <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
                                 <i class="far  nav-icon"></i>
-                                <p>Stripe</p>
+                                <p>@_localization.Getkey("Stripe")</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="pages/layout/boxed.html" class="nav-link">
                                 <i class="far  nav-icon"></i>
-                                <p>Par&aacute;metros</p>
+                                <p>@_localization.Getkey("Parameters")</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="pages/layout/boxed.html" class="nav-link">
                                 <i class="far  nav-icon"></i>
-                                <p>Usuarios</p>
+                                <p>@_localization.Getkey("Users")</p>
                             </a>
                         </li>
                     </ul>

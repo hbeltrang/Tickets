@@ -5,28 +5,36 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Categor&iacute;as</h1>
-
 <div class="content-wrapper">
     <section class="content">
         <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>@_localization.Getkey("Categories")</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Dashboard" asp-action="Index">@_localization.Getkey("Home")</a></li>
+                        <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Dashboard" asp-action="Index">@_localization.Getkey("Catalogs")</a></li>
+                        <li class="breadcrumb-item active"><a asp-area="Admin" asp-controller="Categories" asp-action="Index">@_localization.Getkey("Categories")</a></li>
+                    </ol>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">
-                                <a asp-action="Create">Nueva Categor&Iacute;a</a>
-                            </h3>
+                            <a asp-area="Admin" asp-controller="Categories" asp-action="Create" class="btn btn-primary btn-sm col-lg-2 col-md-4 col-xs-12 start float-right"><i class="fas fa-plus">&nbsp;</i>@_localization.Getkey("NewCategory")</a>
                         </div>
                         <div class="card-body">
                             <table id="mygrid" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
                                     <th>
-                                        @Html.DisplayNameFor(model => model.Id)
+                                            @_localization.Getkey("Id")
                                     </th>
                                     <th>
-                                        @Html.DisplayNameFor(model => model.Name)
+                                            @_localization.Getkey("Name")
                                     </th>
                                     <th></th>
                                 </tr>
@@ -41,9 +49,9 @@
                                                 @Html.DisplayFor(modelItem => item.Name)
                                             </td>
                                             <td>
-                                                @Html.ActionLink("", "Edit", new {  id=item.Id  }, new { @class="fa fa-pen-to-square" }) |
-                                                @Html.ActionLink("", "Details", new {  id=item.Id  }, new { @class="fa fa-trash" }) |
-                                                @Html.ActionLink("", "Delete", new {  id=item.Id  }, new { @class="fas fa-times-circle" })
+                                                <a asp-area="Admin" asp-controller="Categories" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-info" title="@_localization.Getkey("Edit")"><i class="list-icon-edd fa fa-pen"></i></a> |
+                                                <a asp-area="Admin" asp-controller="Categories" asp-action="Details" asp-route-id="@item.Id" class="btn btn-secondary" title="@_localization.Getkey("Details")"><i class="list-icon-edd fa fa-info"></i></a> |
+                                                <a asp-area="Admin" asp-controller="Categories" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger" title="@_localization.Getkey("Delete")"><i class="list-icon-edd fa fa-trash"></i></a>
                                             </td>
                                         </tr>
                                 }
@@ -67,9 +75,23 @@
                 "ordering": true,
                 "info": true,
                 "autoWidth": false,
-                "responsive": true,
                 "responsive": true, "lengthChange": false, "autoWidth": false,
-                "buttons": ["excel", "pdf", "print", "colvis"]
+                "buttons": ["excel", "pdf", "print", "colvis"],
+                "oLanguage": {
+                    "sSearch": "@_localization.Getkey("Search"):",
+                    "oPaginate": {
+                        "sFirst": " << ",
+                        "sNext": " > ",
+                        "sLast": " >> ",
+                        "sPrevious": " < "
+                    },
+                    "sLengthMenu": "Mostrar _MENU_ ",
+                    "sInfo": "Total _TOTAL_ @_localization.Getkey("Of") (_START_ @_localization.Getkey("To") _END_)",
+                    "buttons": {
+                        "print": "@_localization.Getkey("Print")",
+                        "colvis": "@_localization.Getkey("ShowColumns")"
+                    }
+                }
             }).buttons().container().appendTo('#mygrid_wrapper .col-md-6:eq(0)');
         });
     </script>

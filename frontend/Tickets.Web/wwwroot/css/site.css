@@ -1,3 +1,4 @@
+/*
 html {
   font-size: 14px;
 }
@@ -19,4 +20,13 @@ html {
 
 body {
   margin-bottom: 60px;
+}
+*/
+
+.list-icon-edd {
+    width: 16px;
+}
+
+.text-capitalize {
+    text-transform: capitalize;
 }

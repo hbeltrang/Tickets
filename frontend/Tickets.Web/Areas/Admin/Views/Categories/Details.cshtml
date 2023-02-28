@@ -1,0 +1,57 @@
+﻿@model Tickets.Web.Areas.Admin.ViewModels.CategoryVm
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = _localization.Getkey("Details");
+}
+
+<div class="content-wrapper">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>@_localization.Getkey("Category")</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Dashboard" asp-action="Index">@_localization.Getkey("Home")</a></li>
+                        <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Dashboard" asp-action="Index">@_localization.Getkey("Catalogs")</a></li>
+                        <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Categories" asp-action="Index">@_localization.Getkey("Categories")</a></li>
+                        <li class="breadcrumb-item active">@_localization.Getkey("Category") @_localization.Getkey("Detail")</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                @_localization.Getkey("Category") @_localization.Getkey("Detail")
+                            </h3>
+                        </div>
+                        <div class="card-body">
+                            <dl class="row">
+                                <dt class = "col-sm-2">
+                                    @_localization.Getkey("Id")
+                                </dt>
+                                <dd class = "col-sm-10">
+                                    @Html.DisplayFor(model => model.Id)
+                                </dd>
+                                <dt class = "col-sm-2">
+                                    @_localization.Getkey("Name")
+                                </dt>
+                                <dd class = "col-sm-10">
+                                    @Html.DisplayFor(model => model.Name)
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="card-footer">
+                            <a asp-area="Admin" asp-controller="Categories" asp-action="Index" class="btn btn-default">@_localization.Getkey("BackToList")</a>
+                            <a asp-area="Admin" asp-controller="Categories" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-info float-right" title="@_localization.Getkey("Edit")"><i class="list-icon-edd fa fa-pen"></i>&nbsp; @_localization.Getkey("Edit")</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

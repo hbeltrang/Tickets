@@ -23,6 +23,47 @@ namespace Tickets.Web.Services
             _apiURL = configuration.GetValue<string>("ApiSettings:ApiURL");
         }
 
+        public async Task<string> GetLoginApiAdminToken()
+        {
+            ApiResponse apiResponse = new ApiResponse();
+            string token = string.Empty;
+
+            try
+            {
+                var endpoint = "api/v1/Users/login";
+
+                var apiCredentialAdmin = new Login()
+                {
+                    Email = _apiUser,
+                    Password = _apiPwd,
+                };
+
+                var httpClient = new HttpClient();
+                httpClient.BaseAddress = new Uri(_apiURL);
+
+                var content = new StringContent(JsonConvert.SerializeObject(apiCredentialAdmin), Encoding.UTF8, "application/json");
+
+                var response = await httpClient.PostAsync(endpoint, content);
+                if (response.IsSuccessStatusCode)
+                {
+                    var jsonResponse = await response.Content.ReadAsStringAsync();
+                    var result = JsonConvert.DeserializeObject<AuthResponse>(jsonResponse);
+                    if (result != null)
+                    {
+                        token = "Bearer " + result.Token!;
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                apiResponse.IsSuccess = false;
+                apiResponse.Message = "Error Service GetLoginApiAdminToken" + ex.Message;
+            }
+
+            return token;
+        }
+
         public async Task<ApiResponse> LoginApiAdmin()
         {
             ApiResponse apiResponse = new ApiResponse();
@@ -127,7 +168,7 @@ namespace Tickets.Web.Services
                 httpClient.BaseAddress = new Uri(_apiURL);
                 httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(_token);
 
-                var endpoint = $"/api/v1/Users/register";
+                var endpoint = $"api/v1/Users/register";
 
                 var content = new StringContent(JsonConvert.SerializeObject(model), Encoding.UTF8, "application/json");
 
