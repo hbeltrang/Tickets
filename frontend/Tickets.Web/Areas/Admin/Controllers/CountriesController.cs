@@ -6,11 +6,11 @@ using Tickets.Web.Services;
 namespace Tickets.Web.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class CategoriesController : Controller
+    public class CountriesController : Controller
     {
-        private readonly ICategoryService _service;
+        private readonly ICountryService _service;
 
-        public CategoriesController(ICategoryService service) 
+        public CountriesController(ICountryService service)
         {
             _service = service;
         }
@@ -18,12 +18,12 @@ namespace Tickets.Web.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            List<CategoryVm> vm = new List<CategoryVm>();
+            List<CountryVm> vm = new List<CountryVm>();
             ApiResponse apiResponse = await _service.GetAll();
-           
+
             if (apiResponse.IsSuccess)
             {
-                vm = (List<CategoryVm>)apiResponse.Result!;
+                vm = (List<CountryVm>)apiResponse.Result!;
             }
             return View(vm);
         }
@@ -36,7 +36,7 @@ namespace Tickets.Web.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(CategoryVm vm)
+        public async Task<ActionResult> Create(CountryVm vm)
         {
             ViewBag.Error = string.Empty;
             if (ModelState.IsValid)
@@ -57,7 +57,7 @@ namespace Tickets.Web.Areas.Admin.Controllers
 
         public async Task<ActionResult> Edit(int id)
         {
-            CategoryVm vm = new CategoryVm();
+            CountryVm vm = new CountryVm();
 
             if (id == null)
             {
@@ -72,14 +72,16 @@ namespace Tickets.Web.Areas.Admin.Controllers
                 return View(vm);
             }
 
-            vm = (CategoryVm)apiResponse.Result!;
+            vm = (CountryVm)apiResponse.Result!;
+
             ViewBag.Error = string.Empty;
+
             return View(vm);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit(CategoryVm vm)
+        public async Task<ActionResult> Edit(CountryVm vm)
         {
             ViewBag.Error = string.Empty;
             if (ModelState.IsValid)
@@ -93,21 +95,21 @@ namespace Tickets.Web.Areas.Admin.Controllers
                 {
                     ViewBag.Error = apiResponse.Message;
                 }
-            }
+            }            
 
             return View(vm);
         }
 
         public async Task<ActionResult> Details(int id)
         {
-            CategoryVm vm = new CategoryVm();
+            CountryVm vm = new CountryVm();
 
             if (id == null)
             {
                 return View(vm);
             }
 
-            
+
             ApiResponse apiResponse = await _service.GetById(id);
 
             if (!apiResponse.IsSuccess)
@@ -115,14 +117,14 @@ namespace Tickets.Web.Areas.Admin.Controllers
                 return View(vm);
             }
 
-            vm = (CategoryVm)apiResponse.Result!;
+            vm = (CountryVm)apiResponse.Result!;
 
             return View(vm);
         }
 
         public async Task<ActionResult> Delete(int id)
         {
-            CategoryVm vm = new CategoryVm();
+            CountryVm vm = new CountryVm();
 
             if (id == null)
             {
@@ -136,8 +138,10 @@ namespace Tickets.Web.Areas.Admin.Controllers
                 return View(vm);
             }
 
-            vm = (CategoryVm)apiResponse.Result!;
+            vm = (CountryVm)apiResponse.Result!;
+
             ViewBag.Error = string.Empty;
+
             return View(vm);
         }
 
@@ -162,6 +166,5 @@ namespace Tickets.Web.Areas.Admin.Controllers
 
             return View();
         }
-
     }
 }

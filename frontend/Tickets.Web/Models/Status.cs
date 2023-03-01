@@ -1,6 +1,4 @@
-﻿using System.Runtime.Serialization;
-
-namespace Tickets.Domain.Common
+﻿namespace Tickets.Web.Models
 {
     public enum Status
     {

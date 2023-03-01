@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Tickets.Web.Areas.Admin.ViewModels.CategoryVm>
+﻿@model IEnumerable<Tickets.Web.Areas.Admin.ViewModels.CountryVm>
 
 @{
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
@@ -10,13 +10,13 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>@_localization.Getkey("Categories")</h1>
+                    <h1>@_localization.Getkey("Countries")</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Dashboard" asp-action="Index">@_localization.Getkey("Home")</a></li>
                         <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Dashboard" asp-action="Index">@_localization.Getkey("Catalogs")</a></li>
-                        <li class="breadcrumb-item active"><a asp-area="Admin" asp-controller="Categories" asp-action="Index">@_localization.Getkey("Categories")</a></li>
+                        <li class="breadcrumb-item active"><a asp-area="Admin" asp-controller="Countries" asp-action="Index">@_localization.Getkey("Countries")</a></li>
                     </ol>
                 </div>
             </div>
@@ -28,19 +28,23 @@
                         </div>
                         <div class="card-body">
                             <table id="mygrid" class="table table-bordered table-striped">
-                            <thead>
-                                <tr>
-                                    <th>
+                                <thead>
+                                    <tr>
+                                        <th>
                                             @_localization.Getkey("Id")
-                                    </th>
-                                    <th>
+                                        </th>
+                                        <th>
                                             @_localization.Getkey("Name")
-                                    </th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (var item in Model) {
+                                        </th>
+                                        <th>
+                                            @_localization.Getkey("Code")
+                                        </th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
                                         <tr>
                                             <td>
                                                 @Html.DisplayFor(modelItem => item.Id)
@@ -49,13 +53,16 @@
                                                 @Html.DisplayFor(modelItem => item.Name)
                                             </td>
                                             <td>
+                                                @Html.DisplayFor(modelItem => item.Code)
+                                            </td>
+                                            <td>
                                                 <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-info" title="@_localization.Getkey("Edit")"><i class="list-icon-edd fa fa-pen"></i></a> |
                                                 <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-secondary" title="@_localization.Getkey("Details")"><i class="list-icon-edd fa fa-info"></i></a> |
                                                 <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger" title="@_localization.Getkey("Delete")"><i class="list-icon-edd fa fa-trash"></i></a>
                                             </td>
                                         </tr>
-                                }
-                            </tbody>
+                                    }
+                                </tbody>
                             </table>
                         </div>
                     </div>

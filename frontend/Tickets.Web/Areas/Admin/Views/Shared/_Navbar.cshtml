@@ -57,8 +57,8 @@
                 <i class="fas fa-expand-arrows-alt"></i>
             </a>
         </li>
-        @*<li class="nav-item">
-            <a class="nav-link" asp-area="Admin" asp-controller="Dashboard" asp-action="ChangeLanguage" asp-route-newCulture="es-MX" asp-route-returnUrl="@currentUrl" role="button">
+       @* <li class="nav-item">
+            <a class="nav-link" asp-area="Admin" asp-controller="Dashboard" asp-action="ChangeLanguage" asp-route-newCulture="es" asp-route-returnUrl="@currentUrl" role="button">
                 <i class="fas fa-flag"></i>
             </a>
         </li>
@@ -67,7 +67,7 @@
                 <i class="fas fa-flag-usa"></i>
             </a>
         </li>*@
-        <li class="nav-item mt-2">
+       @* <li class="nav-item mt-2">
             <form class="d-flex" asp-area="Admin" asp-controller="Dashboard" asp-action="ChangeLanguage" asp-route-returnUrl="@currentUrl">
                 <select class="text-capitalize" name="newCulture"
                         asp-for="@myCulture.RequestCulture.UICulture.Name"
@@ -75,7 +75,30 @@
                         onchange="this.form.submit()">
                 </select>
             </form>
+        </li>*@
+        <!-- Language Dropdown Menu -->
+        <li class="nav-item dropdown">
+            <a class="nav-link" data-toggle="dropdown" href="#">
+                @if (myCulture.RequestCulture.Culture.Name == "en-US")
+                {
+                    <i class="flag-icon flag-icon-us"></i> @_localization.Getkey("English")
+                }
+                else
+                {
+                    <i class="flag-icon flag-icon-mx"></i> @_localization.Getkey("Spanish")
+                }
+
+            </a>
+            <div class="dropdown-menu dropdown-menu-right p-0">
+                <a class="dropdown-item active" asp-area="Admin" asp-controller="Dashboard" asp-action="ChangeLanguage" asp-route-newCulture="es" asp-route-returnUrl="@currentUrl" role="button">
+                    <i class="flag-icon flag-icon-mx mr-2"></i> @_localization.Getkey("Spanish")
+                </a>
+                <a class="dropdown-item active" asp-area="Admin" asp-controller="Dashboard" asp-action="ChangeLanguage" asp-route-newCulture="en-US" asp-route-returnUrl="@currentUrl" role="button">
+                    <i class="flag-icon flag-icon-us mr-2"></i> @_localization.Getkey("English")
+                </a>
+            </div>
         </li>
+        
     </ul>
 </nav>
 <!-- /.navbar -->

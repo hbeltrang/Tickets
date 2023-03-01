@@ -234,6 +234,9 @@
   <data name="Email" xml:space="preserve">
     <value>Correo Electrónico</value>
   </data>
+  <data name="English" xml:space="preserve">
+    <value>Inglés</value>
+  </data>
   <data name="Event" xml:space="preserve">
     <value>Evento</value>
   </data>
@@ -444,11 +447,17 @@
   <data name="Sold" xml:space="preserve">
     <value>Vendido</value>
   </data>
+  <data name="Spanish" xml:space="preserve">
+    <value>Español</value>
+  </data>
   <data name="State" xml:space="preserve">
     <value>Estado</value>
   </data>
   <data name="States" xml:space="preserve">
     <value>Estados</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Estatus</value>
   </data>
   <data name="Stripe" xml:space="preserve">
     <value>Stripe</value>

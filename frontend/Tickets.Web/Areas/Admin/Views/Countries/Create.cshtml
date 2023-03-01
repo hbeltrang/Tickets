@@ -1,4 +1,4 @@
-﻿@model Tickets.Web.Areas.Admin.ViewModels.CategoryVm
+﻿@model Tickets.Web.Areas.Admin.ViewModels.CountryVm
 
 @{
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
@@ -10,14 +10,14 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>@_localization.Getkey("Category")</h1>
+                    <h1>@_localization.Getkey("Country")</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Dashboard" asp-action="Index">@_localization.Getkey("Home")</a></li>
                         <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Dashboard" asp-action="Index">@_localization.Getkey("Catalogs")</a></li>
-                        <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Categories" asp-action="Index">@_localization.Getkey("Categories")</a></li>
-                        <li class="breadcrumb-item active">@_localization.Getkey("New") @_localization.Getkey("Category")</li>
+                        <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Countries" asp-action="Index">@_localization.Getkey("Countries")</a></li>
+                        <li class="breadcrumb-item active">@_localization.Getkey("New") @_localization.Getkey("Country")</li>
                     </ol>
                 </div>
             </div>
@@ -26,7 +26,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">
-                                @_localization.Getkey("New") @_localization.Getkey("Category")
+                                @_localization.Getkey("New") @_localization.Getkey("Country")
                             </h3>
                         </div>
                         <form id="myForm" asp-action="Create">
@@ -39,11 +39,18 @@
                                         <span asp-validation-for="Name" class="text-danger"></span>
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <div class="form-group">
+                                        <label asp-for="Code" class="control-label">@_localization.Getkey("Code")</label>
+                                        <input asp-for="Code" class="form-control" />
+                                        <span asp-validation-for="Code" class="text-danger"></span>
+                                    </div>
+                                </div>
                                 <div class="form-group form-check">
                                     <label class="form-check-label" hidden>
                                         <input class="form-check-input" asp-for="Status" checked="checked" /> @_localization.Getkey("Status")
                                     </label>
-                                </div>     
+                                </div>
                                 @if (ViewBag.Error != "")
                                 {
                                     <div class="form-group form-check">
@@ -67,41 +74,49 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 
     <script type="text/javascript">
         $(function () {
-            
+
             $.validator.setDefaults({
                 //submitHandler: function () {
                 //  alert( "Form successful submitted!" );
                 //}
-              });
-              $('#myForm').validate({
+            });
+            $('#myForm').validate({
                 rules: {
-                  Name: {
-                    required: true,
-                  }
+                    Name: {
+                        required: true,
+                    },
+                    Code: {
+                        required: true,
+                    }
                 },
                 messages: {
                     Name: {
                         required: "@_localization.Getkey("ValidationFieldRequired")",
-                    },                  
+                    },
+                    Code: {
+                        required: "@_localization.Getkey("ValidationFieldRequired")",
+                    },
                 },
                 errorElement: 'span',
                 errorPlacement: function (error, element) {
-                  error.addClass('invalid-feedback');
-                  element.closest('.form-group').append(error);
+                    error.addClass('invalid-feedback');
+                    element.closest('.form-group').append(error);
                 },
                 highlight: function (element, errorClass, validClass) {
-                  $(element).addClass('is-invalid');
+                    $(element).addClass('is-invalid');
                 },
                 unhighlight: function (element, errorClass, validClass) {
-                  $(element).removeClass('is-invalid');
+                    $(element).removeClass('is-invalid');
                 }
-              });
+            });
 
         });
     </script>
-
+    
 }

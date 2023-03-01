@@ -3,13 +3,12 @@ using Tickets.Web.Models;
 
 namespace Tickets.Web.Services
 {
-    public interface ICategoryService
+    public interface ICountryService
     {
         Task<ApiResponse> GetAll();
         Task<ApiResponse> GetById(int id);
-        Task<ApiResponse> Create(CategoryVm model);
-        Task<ApiResponse> Update(CategoryVm model);
+        Task<ApiResponse> Create(CountryVm model);
+        Task<ApiResponse> Update(CountryVm model);
         Task<ApiResponse> Delete(int id);
-
     }
 }

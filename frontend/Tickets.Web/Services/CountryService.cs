@@ -5,7 +5,7 @@ using Tickets.Web.Models;
 
 namespace Tickets.Web.Services
 {
-    public class CategoryService : ICategoryService
+    public class CountryService : ICountryService
     {
         private static string _apiUser;
         private static string _apiPwd;
@@ -15,7 +15,7 @@ namespace Tickets.Web.Services
         private readonly IConfiguration _configuration;
         private readonly IUserService _userService;
 
-        public CategoryService(IConfiguration configuration, IUserService userService)
+        public CountryService(IConfiguration configuration, IUserService userService)
         {
             _configuration = configuration;
             _userService = userService;
@@ -23,8 +23,8 @@ namespace Tickets.Web.Services
             _apiUser = configuration.GetValue<string>("ApiSettings:ApiUser");
             _apiPwd = configuration.GetValue<string>("ApiSettings:ApiPwd");
             _apiURL = configuration.GetValue<string>("ApiSettings:ApiURL");
-            
-        }        
+
+        }
 
         public async Task<ApiResponse> GetAll()
         {
@@ -36,17 +36,15 @@ namespace Tickets.Web.Services
 
                 var httpClient = new HttpClient();
                 httpClient.BaseAddress = new Uri(_apiURL);
-                //httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 httpClient.DefaultRequestHeaders.Add("Authorization", _token);
-                //httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer ", _token);
 
-                var endpoint = "api/v1/categories";
+                var endpoint = "api/v1/countries";
 
                 var response = await httpClient.GetAsync(endpoint);
                 if (response.IsSuccessStatusCode)
                 {
                     var jsonResponse = await response.Content.ReadAsStringAsync();
-                    var result = JsonConvert.DeserializeObject<List<CategoryVm>>(jsonResponse);
+                    var result = JsonConvert.DeserializeObject<List<CountryVm>>(jsonResponse);
 
                     apiResponse.IsSuccess = true;
                     apiResponse.Message = "OK";
@@ -55,7 +53,7 @@ namespace Tickets.Web.Services
                 else
                 {
                     apiResponse.IsSuccess = false;
-                    apiResponse.Message = "Error categories: " + response.ReasonPhrase!;
+                    apiResponse.Message = "Error countries: " + response.ReasonPhrase!;
                 }
             }
             catch (Exception ex)
@@ -64,7 +62,7 @@ namespace Tickets.Web.Services
                 apiResponse.Message = ex.Message;
                 Console.WriteLine(ex.ToString());
             }
-            
+
             return apiResponse;
         }
 
@@ -80,13 +78,13 @@ namespace Tickets.Web.Services
                 httpClient.BaseAddress = new Uri(_apiURL);
                 httpClient.DefaultRequestHeaders.Add("Authorization", _token);
 
-                var endpoint = $"api/v1/categories/{id}";
+                var endpoint = $"api/v1/countries/{id}";
 
                 var response = await httpClient.GetAsync(endpoint);
                 if (response.IsSuccessStatusCode)
                 {
                     var jsonResponse = await response.Content.ReadAsStringAsync();
-                    var result = JsonConvert.DeserializeObject<CategoryVm>(jsonResponse);
+                    var result = JsonConvert.DeserializeObject<CountryVm>(jsonResponse);
 
                     apiResponse.IsSuccess = true;
                     apiResponse.Message = "OK";
@@ -103,11 +101,11 @@ namespace Tickets.Web.Services
                 apiResponse.IsSuccess = false;
                 apiResponse.Message = ex.Message;
             }
-            
+
             return apiResponse;
         }
 
-        public async Task<ApiResponse> Create(CategoryVm model)
+        public async Task<ApiResponse> Create(CountryVm model)
         {
             ApiResponse apiResponse = new ApiResponse();
 
@@ -119,7 +117,7 @@ namespace Tickets.Web.Services
                 httpClient.BaseAddress = new Uri(_apiURL);
                 httpClient.DefaultRequestHeaders.Add("Authorization", _token);
 
-                var endpoint = "api/v1/categories/create";
+                var endpoint = "api/v1/countries/create";
 
                 var content = new StringContent(JsonConvert.SerializeObject(model), Encoding.UTF8, "application/json");
 
@@ -140,11 +138,11 @@ namespace Tickets.Web.Services
                 apiResponse.IsSuccess = false;
                 apiResponse.Message = ex.Message;
             }
-            
+
             return apiResponse;
         }
 
-        public async Task<ApiResponse> Update(CategoryVm model)
+        public async Task<ApiResponse> Update(CountryVm model)
         {
             ApiResponse apiResponse = new ApiResponse();
 
@@ -156,7 +154,7 @@ namespace Tickets.Web.Services
                 httpClient.BaseAddress = new Uri(_apiURL);
                 httpClient.DefaultRequestHeaders.Add("Authorization", _token);
 
-                var endpoint = "api/v1/categories/update";
+                var endpoint = "api/v1/Countries/update";
 
                 var content = new StringContent(JsonConvert.SerializeObject(model), Encoding.UTF8, "application/json");
 
@@ -178,7 +176,7 @@ namespace Tickets.Web.Services
                 apiResponse.Message = ex.Message;
             }
 
-            
+
             return apiResponse;
         }
 
@@ -194,7 +192,7 @@ namespace Tickets.Web.Services
                 httpClient.BaseAddress = new Uri(_apiURL);
                 httpClient.DefaultRequestHeaders.Add("Authorization", _token);
 
-                var endpoint = $"api/v1/categories/{id}";
+                var endpoint = $"api/v1/countries/{id}";
 
                 var response = await httpClient.DeleteAsync(endpoint);
                 if (response.IsSuccessStatusCode)
@@ -217,5 +215,7 @@ namespace Tickets.Web.Services
 
             return apiResponse;
         }
+
+
     }
 }

@@ -1,4 +1,4 @@
-﻿@model Tickets.Web.Areas.Admin.ViewModels.CategoryVm
+﻿@model Tickets.Web.Areas.Admin.ViewModels.CountryVm
 
 @{
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
@@ -10,14 +10,14 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>@_localization.Getkey("Category")</h1>
+                    <h1>@_localization.Getkey("Country")</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Dashboard" asp-action="Index">@_localization.Getkey("Home")</a></li>
                         <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Dashboard" asp-action="Index">@_localization.Getkey("Catalogs")</a></li>
-                        <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Categories" asp-action="Index">@_localization.Getkey("Categories")</a></li>
-                        <li class="breadcrumb-item active">@_localization.Getkey("Edit") @_localization.Getkey("Category")</li>
+                        <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Countries" asp-action="Index">@_localization.Getkey("Countries")</a></li>
+                        <li class="breadcrumb-item active">@_localization.Getkey("Edit") @_localization.Getkey("Country")</li>
                     </ol>
                 </div>
             </div>
@@ -26,7 +26,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">
-                                @_localization.Getkey("Edit") @_localization.Getkey("Category")
+                                @_localization.Getkey("Edit") @_localization.Getkey("Country")
                             </h3>
                         </div>
                         <form id="myForm" asp-action="Edit">
@@ -38,19 +38,23 @@
                                     <input asp-for="Name" class="form-control" />
                                     <span asp-validation-for="Name" class="text-danger"></span>
                                 </div>
+                                <div class="form-group">
+                                    <label asp-for="Code" class="control-label">@_localization.Getkey("Code")</label>
+                                    <input asp-for="Code" class="form-control" />
+                                    <span asp-validation-for="Code" class="text-danger"></span>
+                                </div>
                                 <div class="form-group form-check">
-                                    <label class="form-check-label" hidden>
-                                        <input class="form-check-input" asp-for="Status" /> @_localization.Getkey("Status")
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" asp-for="Status" hidden /> @_localization.Getkey("Status")
                                     </label>
                                 </div>
-                                @if (ViewBag.Error != "")
-                                {
-                                    <div class="form-group form-check">
-                                        <div class="alert alert-danger alert-dismissible">
-                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                            <h5><i class="icon fas fa-ban"></i>Error</h5> @ViewBag.Error
-                                        </div>
+                                @if (ViewBag.Error != "") {
+                                <div class="form-group form-check">
+                                    <div class="alert alert-danger alert-dismissible">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                        <h5><i class="icon fas fa-ban"></i>Error</h5> @ViewBag.Error
                                     </div>
+                                </div>
                                 }
                             </div>
                             <div class="card-footer">
@@ -82,10 +86,16 @@
                 rules: {
                     Name: {
                         required: true,
+                    },
+                    Code: {
+                        required: true,
                     }
                 },
                 messages: {
                     Name: {
+                        required: "@_localization.Getkey("ValidationFieldRequired")",
+                    },
+                    Code: {
                         required: "@_localization.Getkey("ValidationFieldRequired")",
                     },
                 },
