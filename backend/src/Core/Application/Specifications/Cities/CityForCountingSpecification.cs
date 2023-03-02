@@ -8,8 +8,7 @@ namespace Tickets.Application.Specifications.Cities
             : base(
                 x =>
                  (string.IsNullOrEmpty(stateParams.Search) || x.Name!.Contains(stateParams.Search)) &&
-                (!stateParams.CountryId.HasValue || x.CountryId == stateParams.CountryId) &&
-                (!stateParams.StateId.HasValue || x.StateId == stateParams.CountryId)
+                (!stateParams.StateId.HasValue || x.StateId == stateParams.StateId)
             )
         {
 

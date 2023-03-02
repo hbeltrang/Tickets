@@ -9,6 +9,7 @@ namespace Tickets.Web.Areas.Admin.Controllers
     public class CountriesController : Controller
     {
         private readonly ICountryService _service;
+        //private readonly IApiService _service;
 
         public CountriesController(ICountryService service)
         {

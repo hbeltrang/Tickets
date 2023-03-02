@@ -22,8 +22,8 @@ namespace Tickets.Application.Features.Cities.Queries.GetCityList
         public async Task<IReadOnlyList<CityVm>> Handle(GetCityListQuery request, CancellationToken cancellationToken)
         {
             var includes = new List<Expression<Func<City, object>>>();
-            includes.Add(p => p.Country!);
             includes.Add(p => p.State!);
+            includes.Add(p => p.State!.Country!);
 
             var cities = await _unitOfWork.Repository<City>().GetAsync(
                x => x.Status == Status.Active,

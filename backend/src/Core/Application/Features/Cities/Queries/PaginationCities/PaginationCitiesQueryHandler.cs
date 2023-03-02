@@ -28,7 +28,7 @@ namespace Tickets.Application.Features.Cities.Queries.PaginationCities
                 PageSize = request.PageSize,
                 Search = request.Search,
                 Sort = request.Sort,
-                CountryId = request.CountryId,
+                StateId = request.StateId,
             };
 
             var spec = new CitySpecification(citySpecificationParams);

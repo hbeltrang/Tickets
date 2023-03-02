@@ -1,0 +1,111 @@
+﻿@model IEnumerable<Tickets.Web.Areas.Admin.ViewModels.StateVm>
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Index";
+}
+
+<div class="content-wrapper">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>@_localization.Getkey("States")</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Dashboard" asp-action="Index">@_localization.Getkey("Home")</a></li>
+                        <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Dashboard" asp-action="Index">@_localization.Getkey("Catalogs")</a></li>
+                        <li class="breadcrumb-item active"><a asp-area="Admin" asp-controller="States" asp-action="Index">@_localization.Getkey("States")</a></li>
+                    </ol>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <a asp-action="Create" class="btn btn-primary btn-sm col-lg-2 col-md-4 col-xs-12 start float-right"><i class="fas fa-plus">&nbsp;</i>@_localization.Getkey("NewCategory")</a>
+                        </div>
+                        <div class="card-body">
+                            <table id="mygrid" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            @_localization.Getkey("Id")
+                                        </th>                                        
+                                        <th>
+                                            @_localization.Getkey("State")
+                                        </th>
+                                        <th>
+                                            @_localization.Getkey("Code")
+                                        </th>
+                                        <th>
+                                            @_localization.Getkey("Country")
+                                        </th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Id)
+                                            </td>                                            
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Name)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Code)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.CountryName)
+                                            </td>
+                                            <td>
+                                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-info" title="@_localization.Getkey("Edit")"><i class="list-icon-edd fa fa-pen"></i></a> |
+                                                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-secondary" title="@_localization.Getkey("Details")"><i class="list-icon-edd fa fa-info"></i></a> |
+                                                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger" title="@_localization.Getkey("Delete")"><i class="list-icon-edd fa fa-trash"></i></a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+        $(function () {
+            $("#mygrid").DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true, "lengthChange": false, "autoWidth": false,
+                "buttons": ["excel", "pdf", "print", "colvis"],
+                "oLanguage": {
+                    "sSearch": "@_localization.Getkey("Search"):",
+                    "oPaginate": {
+                        "sFirst": " << ",
+                        "sNext": " > ",
+                        "sLast": " >> ",
+                        "sPrevious": " < "
+                    },
+                    "sLengthMenu": "Mostrar _MENU_ ",
+                    "sInfo": "Total _TOTAL_ @_localization.Getkey("Of") (_START_ @_localization.Getkey("To") _END_)",
+                    "buttons": {
+                        "print": "@_localization.Getkey("Print")",
+                        "colvis": "@_localization.Getkey("ShowColumns")"
+                    }
+                }
+            }).buttons().container().appendTo('#mygrid_wrapper .col-md-6:eq(0)');
+        });
+    </script>
+}

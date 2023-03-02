@@ -9,6 +9,6 @@ namespace Tickets.Domain
         public string? Code { get; set; }
 
         public virtual ICollection<State>? States { get; set; }
-        public virtual ICollection<City>? Cities { get; set; }
+        //public virtual ICollection<City>? Cities { get; set; }
     }
 }

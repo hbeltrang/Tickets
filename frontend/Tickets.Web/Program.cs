@@ -46,6 +46,11 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<ICountryService, CountryService>();
+builder.Services.AddScoped(typeof(IApiService<>), typeof(ApiService<>));
+
+//builder.Services.AddSingleton(typeof(IApiService), typeof(ApiService));
+builder.Services.AddHttpClient("ApiUrlBase", c => c.BaseAddress = new Uri(builder.Configuration["ApiSettings:ApiURL"]!));
+
 
 var app = builder.Build();
 

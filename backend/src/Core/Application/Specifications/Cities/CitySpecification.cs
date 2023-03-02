@@ -8,13 +8,12 @@ namespace Tickets.Application.Specifications.Cities
             : base(
                 x =>
                  (string.IsNullOrEmpty(stateParams.Search) || x.Name!.Contains(stateParams.Search)) &&
-                (!stateParams.CountryId.HasValue || x.CountryId == stateParams.CountryId) &&
-                (!stateParams.StateId.HasValue || x.CountryId == stateParams.StateId)
+                (!stateParams.StateId.HasValue || x.StateId == stateParams.StateId)
             )
         {
-
-            AddInclude(p => p.Country!);
+            
             AddInclude(p => p.State!);
+            AddInclude(p => p.State!.Country!);
 
             ApplyPaging(stateParams.PageSize * (stateParams.PageIndex - 1), stateParams.PageSize);
 

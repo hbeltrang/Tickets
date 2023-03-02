@@ -5,7 +5,7 @@ using System.Net;
 using Tickets.Application.Features.Cities.Commands.CreateCity;
 using Tickets.Application.Features.Cities.Commands.DeleteCity;
 using Tickets.Application.Features.Cities.Commands.UpdateCity;
-using Tickets.Application.Features.Cities.Queries.GetCityByCountryStateId;
+using Tickets.Application.Features.Cities.Queries.GetCityByStateId;
 using Tickets.Application.Features.Cities.Queries.GetCityById;
 using Tickets.Application.Features.Cities.Queries.GetCityList;
 using Tickets.Application.Features.Cities.Queries.PaginationCities;
@@ -48,11 +48,11 @@ namespace Tickets.Api.Controllers
         }
 
         [Authorize(Roles = Role.ADMINOrAPIADMIN)]
-        [HttpGet("country/{countryid}/state/{stateid}", Name = "GetCityByCountryStateId")]
+        [HttpGet("state/{stateid}", Name = "GetCityByStateId")]
         [ProducesResponseType(typeof(IReadOnlyList<CityVm>), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<IReadOnlyList<CityVm>>> GetCityByCountryStateId(int countryid, int stateid)
+        public async Task<ActionResult<IReadOnlyList<CityVm>>> GetCityByStateId(int stateid)
         {
-            var query = new GetCityByCountryStateIdQuery(countryid, stateid);
+            var query = new GetCityByStateIdQuery(stateid);
             return Ok(await _mediator.Send(query));
         }
 

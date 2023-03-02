@@ -279,9 +279,6 @@ namespace Tickets.Infrastructure.Migrations
                     b.Property<string>("Code")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("CountryId")
-                        .HasColumnType("int");
-
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
 
@@ -304,8 +301,6 @@ namespace Tickets.Infrastructure.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CountryId");
 
                     b.HasIndex("StateId");
 
@@ -628,11 +623,11 @@ namespace Tickets.Infrastructure.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Slug")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("Status")
                         .HasColumnType("int");
-
-                    b.Property<string>("slug")
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -765,19 +760,11 @@ namespace Tickets.Infrastructure.Migrations
 
             modelBuilder.Entity("Tickets.Domain.City", b =>
                 {
-                    b.HasOne("Tickets.Domain.Country", "Country")
-                        .WithMany("Cities")
-                        .HasForeignKey("CountryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Tickets.Domain.State", "State")
                         .WithMany("Cities")
                         .HasForeignKey("StateId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Country");
 
                     b.Navigation("State");
                 });
@@ -822,8 +809,6 @@ namespace Tickets.Infrastructure.Migrations
 
             modelBuilder.Entity("Tickets.Domain.Country", b =>
                 {
-                    b.Navigation("Cities");
-
                     b.Navigation("States");
                 });
 

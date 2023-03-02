@@ -7,7 +7,6 @@ namespace Tickets.Application.Features.Cities.Queries.PaginationCities
 {
     public class PaginationCitiesQuery : PaginationBaseQuery, IRequest<PaginationVm<CityVm>>
     {
-        public int? CountryId { get; set; }
         public int? StateId { get; set; }
         public Status? Status { get; set; }
     }

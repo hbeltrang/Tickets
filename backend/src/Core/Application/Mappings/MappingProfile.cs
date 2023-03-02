@@ -47,13 +47,15 @@ namespace Tickets.Application.Mappings
             CreateMap<UpdateCategoryCommand, Category>();
 
             CreateMap<State, StateVm>()
-                 .ForMember(p => p.CountryName, x => x.MapFrom(a => a.Country!.Name));
+                 .ForMember(p => p.CountryName, x => x.MapFrom(a => a.Country!.Name))
+                 .ForMember(p => p.CountryId, x => x.MapFrom(a => a.Country!.Id));
             CreateMap<CreateStateCommand, State>();
             CreateMap<UpdateStateCommand, State>();
 
             CreateMap<City, CityVm>()
-                 .ForMember(p => p.CountryName, x => x.MapFrom(a => a.Country!.Name))
-                 .ForMember(p => p.StateName, x => x.MapFrom(a => a.State!.Name));
+                 .ForMember(p => p.StateName, x => x.MapFrom(a => a.State!.Name))
+                 .ForMember(p => p.CountryName, x => x.MapFrom(a => a.State!.Country!.Name))
+                 .ForMember(p => p.CountryId, x => x.MapFrom(a => a.State!.Country!.Id));
             CreateMap<CreateCityCommand, City>();
             CreateMap<UpdateCityCommand, City>();
 

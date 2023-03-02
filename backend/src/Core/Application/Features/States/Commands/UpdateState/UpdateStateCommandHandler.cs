@@ -27,7 +27,7 @@ namespace Tickets.Application.Features.States.Commands.UpdateState
             }
 
             var slug = request.Name!.ToLower();
-            request.slug = slug.Replace(" ", "-");
+            request.Slug = slug.Replace(" ", "-");
 
             _mapper.Map(request, stateToUpdate, typeof(UpdateStateCommand), typeof(State));
             await _unitOfWork.Repository<State>().UpdateAsync(stateToUpdate);

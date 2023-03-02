@@ -7,7 +7,7 @@ namespace Tickets.Application.Features.States.Commands.CreateState
     {
         public string? Name { get; set; }
         public string? Code { get; set; }
-        public string? slug { get; set; }
+        public string? Slug { get; set; }
         public int? CountryId { get; set; }
     }
 }

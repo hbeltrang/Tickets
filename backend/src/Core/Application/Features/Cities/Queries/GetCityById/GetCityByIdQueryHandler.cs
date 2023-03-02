@@ -23,8 +23,8 @@ namespace Tickets.Application.Features.Cities.Queries.GetCityById
         {
 
             var includes = new List<Expression<Func<City, object>>>();
-            includes.Add(p => p.Country!);
             includes.Add(p => p.State!);
+            includes.Add(p => p.State!.Country!);
 
             var cities = await _unitOfWork.Repository<City>().GetEntityAsync(
                 x => x.Id == request.CityId && x.Status == Status.Active,
